@@ -1,0 +1,88 @@
+﻿@page "/following"
+@using BlogHub.Shared.Models
+@inject Supabase.Client supabase
+@inject NavigationManager Nav
+@using static Supabase.Postgrest.Constants
+
+<div class="follow-page">
+    <div class="glass-card" style="position: relative;">
+            <button class="close-btn" @onclick="NavigateToFeed">×</button>
+        <h2>Following (@following.Count)</h2>
+
+        @if (following == null)
+        {
+            <div class="loading-state">Loading...</div>
+        }
+        else if (!following.Any())
+        {
+            <div class="empty-state">
+                <p>Not following anyone yet</p>
+                <button class="btn-round" @onclick="NavigateToSuggested">
+                    Find People
+                </button>
+            </div>
+        }
+        else
+        {
+            <div class="users-list">
+                @foreach (var user in following)
+                {
+                    <div class="user-card">
+                        <div class="avatar">
+                            @(user.Username?.Length > 0 ? user.Username![0].ToString().ToUpper() : "?")
+                        </div>
+                        <div class="user-info">
+                            <strong>@user.Username</strong>
+                            <small>@user.Email</small>
+                        </div>
+                        <button class="btn-unfollow" @onclick="() => Unfollow(user.Id)">
+                            Unfollow
+                        </button>
+                    </div>
+                }
+            </div>
+        }
+    </div>
+</div>
+
+
+@code {
+    private void NavigateToFeed() => Nav.NavigateTo("/feed");
+    private void NavigateToSuggested() => Nav.NavigateTo("/suggested");
+    private List<Profiles> following = new();
+
+    protected override async Task OnInitializedAsync() => await LoadFollowing();
+
+    private async Task LoadFollowing()
+    {
+        var userId = supabase.Auth.CurrentUser!.Id;
+        var resp = await supabase.From<Follows>()
+            .Select("followee_id")
+            .Filter("follower_id", Operator.Equals, userId)
+            .Get();
+
+        var ids = resp.Models.Select(x => x.FolloweeId).ToList();
+        if (!ids.Any())
+        {
+            following = new();
+            return;
+        }
+
+        var users = await supabase.From<Profiles>()
+            .Filter("id", Operator.In, ids)
+            .Get();
+
+        following = users.Models ?? new();
+    }
+
+    private async Task Unfollow(string id)
+    {
+        await supabase.From<Follows>()
+            .Filter("follower_id", Operator.Equals, supabase.Auth.CurrentUser!.Id)
+            .Filter("followee_id", Operator.Equals, id)
+            .Delete();
+
+        following.RemoveAll(u => u.Id == id);
+        StateHasChanged();
+    }
+}

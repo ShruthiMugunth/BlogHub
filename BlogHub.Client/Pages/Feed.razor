@@ -1,0 +1,220 @@
+﻿@page "/feed"
+@using BlogHub.Shared.Models
+@using System.Net.Http.Headers
+@using Supabase.Gotrue
+@inject HttpClient Http
+@inject Supabase.Client SupabaseClient
+@inject NavigationManager Nav
+@inject IJSRuntime JS
+
+<div class="feed-layout">
+    <div class="feed-main">
+        <div class="feed-page">
+            <div class="feed-glass-card">
+                <h2>Latest Posts</h2>
+
+                <div class="search-container">
+                    <i data-lucide="search" style="width: 20px; height: 20px; color: #000; margin-right: 8px;"></i>
+                    <InputText @bind-Value="searchTerm"
+                               @oninput="OnSearchChanged"
+                               placeholder="Search posts by category..."
+                               class="search-input" />
+                    @if (!string.IsNullOrEmpty(searchTerm))
+                    {
+                        <button @onclick="ClearSearch" class="clear-btn" title="Clear search">
+                            <i data-lucide="x" style="width: 16px; height: 16px;"></i>
+                        </button>
+                    }
+                </div>
+
+                @if (filteredPosts == null)
+                {
+                    <p><em>Loading...</em></p>
+                }
+                else if (!filteredPosts.Any())
+                {
+                    @if (string.IsNullOrEmpty(searchTerm))
+                    {
+                        <div class="empty-feed">
+                            <h3>No posts yet</h3>
+                            <p>Follow some users to see their content in your feed.</p>
+                            <button class="find-people-btn" @onclick="NavigateToSuggested">Find People to Follow</button>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="empty-feed">
+                            <h3>No posts found</h3>
+                            <p>No posts match the category "<strong>@searchTerm</strong>". Try another search.</p>
+                        </div>
+                    }
+                }
+                else
+                {
+                    <div class="posts-list">
+                        @foreach (var post in filteredPosts)
+                        {
+                            <div class="post-card" @onclick="() => GoToPost(post.MongoId)">
+
+                                @if (!string.IsNullOrEmpty(post.ImageUrl))
+                                {
+                                    <div class="post-image">
+                                        <img src="@post.ImageUrl" alt="@post.Title" />
+                                    </div>
+                                }
+
+                                <div class="post-content">
+                                    <h3>@post.Title</h3>
+                                    <p class="post-meta">
+                                        <strong>by @post.AuthorName</strong> • @post.CreatedAt.ToString("MMM dd")
+                                    </p>
+
+                                    @if (post.Categories?.Any() == true)
+                                    {
+                                        <div class="categories">
+                                            @foreach (var cat in post.Categories.Take(3))
+                                            {
+                                                <span class="cat-tag">@cat</span>
+                                            }
+                                            @if (post.Categories.Count > 3)
+                                            {
+                                                <span class="cat-tag">+@(post.Categories.Count - 3) more</span>
+                                            }
+                                        </div>
+                                    }
+
+                                    <div class="post-stats">
+                                        <span>❤️ @post.LikeCount</span>
+                                        <span>💬 @post.CommentCount</span>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="right-sidebar">
+        
+        <div class="sidebar-top">
+            <button class="sidebar-btn" @onclick="NavigateToProfile">
+                <i data-lucide="user" class="sidebar-icon"></i>
+                <span class="sidebar-label">Profile</span>
+            </button>
+            <button class="sidebar-btn" @onclick="NavigateToNewBlog">
+                <i data-lucide="edit-3" class="sidebar-icon"></i>
+                <span class="sidebar-label">New Blog</span>
+            </button>
+            <button class="sidebar-btn" @onclick="NavigateToNotifications">
+                <i data-lucide="bell" class="sidebar-icon"></i>
+                <span class="sidebar-label">Notifications</span>
+            </button>
+        </div>
+
+        <div class="sidebar-bottom">
+            <button class="sidebar-btn logout-btn" @onclick="() => ShowLogoutModal = true">
+                <i data-lucide="log-out" class="sidebar-icon"></i>
+                <span class="sidebar-label">Logout</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+<LogoutModal Show="ShowLogoutModal"
+             OnConfirm="HandleConfirmLogout"
+             OnCancel="() => ShowLogoutModal = false" />
+
+@code {
+    private void NavigateToNewBlog() => Nav.NavigateTo("/newblog");
+    private void NavigateToProfile() => Nav.NavigateTo("/profile");
+    private void NavigateToNotifications() => Nav.NavigateTo("/notifications");
+
+    private string searchTerm = "";
+    private List<FeedPost> posts = new();
+    private List<FeedPost> filteredPosts = new();
+    private bool ShowLogoutModal = false;
+
+    private void NavigateToSuggested() => Nav.NavigateTo("/suggested");
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadPosts();
+        filteredPosts = posts;
+    }
+
+    private async Task LoadPosts()
+    {
+        try
+        {
+            var token = SupabaseClient.Auth.CurrentSession?.AccessToken;
+            if (!string.IsNullOrEmpty(token))
+                Http.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
+            posts = await Http.GetFromJsonAsync<List<FeedPost>>("api/feed/followed")
+                    ?? new List<FeedPost>();
+
+            FilterPosts();
+        }
+        catch
+        {
+            posts = new();
+            filteredPosts = new();
+        }
+    }
+
+    private void OnSearchChanged(ChangeEventArgs e)
+    {
+        searchTerm = e.Value?.ToString() ?? "";
+        FilterPosts();
+    }
+
+    private void FilterPosts()
+    {
+        if (string.IsNullOrWhiteSpace(searchTerm))
+        {
+            filteredPosts = posts;
+        }
+        else
+        {
+            filteredPosts = posts.Where(p =>
+                p.Categories?.Any(c =>
+                    c.ToLowerInvariant().Contains(searchTerm.ToLowerInvariant())
+                ) == true
+            ).ToList();
+        }
+        StateHasChanged();
+    }
+
+    private void ClearSearch()
+    {
+        searchTerm = "";
+        FilterPosts();
+    }
+
+    private void GoToPost(string mongoId)
+    {
+        Nav.NavigateTo($"/post/{mongoId}");
+    }
+
+    private async Task HandleConfirmLogout()
+    {
+        ShowLogoutModal = false;
+        await SupabaseClient.Auth.SignOut();
+        await JS.InvokeVoidAsync("localStorage.removeItem", "sb-pcknnnjurlbkhoimzwgu-auth-token");
+        Nav.NavigateTo("/");
+    }
+
+    public class FeedPost
+    {
+        public string MongoId { get; set; } = "";
+        public string Title { get; set; } = "";
+        public string AuthorName { get; set; } = "";
+        public string? ImageUrl { get; set; }
+        public List<string> Categories { get; set; } = new();
+        public DateTime CreatedAt { get; set; }
+        public int LikeCount { get; set; }
+        public int CommentCount { get; set; }
+    }
+}

@@ -1,0 +1,22 @@
+﻿@if (Show)
+{
+    <div class="modal-overlay" @onclick="CloseModal">
+        <div class="modal-card" @onclick:stopPropagation="true">
+            <h3>Confirm Logout</h3>
+            <p>Are you sure you want to leave BlogHub? You'll need to log in again.</p>
+            <div style="display: flex; gap: 10px; justify-content: flex-end;">
+                <button class="modal-btn" @onclick="CloseModal">Cancel</button>
+                <button class="modal-btn logout-confirm" @onclick="ConfirmLogout">Yes, Logout</button>
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+    [Parameter] public bool Show { get; set; }
+    [Parameter] public EventCallback OnConfirm { get; set; }
+    [Parameter] public EventCallback OnCancel { get; set; }
+
+    private async Task ConfirmLogout() => await OnConfirm.InvokeAsync();
+    private async Task CloseModal() => await OnCancel.InvokeAsync();
+}

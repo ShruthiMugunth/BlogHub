@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "BlogHub.Server\\BlogHub.Server.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "BlogHub.Client\\BlogHub.Client.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]

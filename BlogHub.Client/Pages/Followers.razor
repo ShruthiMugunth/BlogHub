@@ -1,0 +1,102 @@
+﻿@page "/followers"
+@using BlogHub.Shared.Models
+@inject Supabase.Client supabase
+@inject NavigationManager Nav
+@using static Supabase.Postgrest.Constants
+
+<div class="follow-page">
+    <div class="glass-card" style="position: relative;">
+        <button class="close-btn" @onclick="NavigateToFeed">×</button>
+        <h2>Your Followers (@followers.Count)</h2>
+
+        @if (followers == null)
+        {
+            <div class="loading-state">Loading...</div>
+        }
+        else if (!followers.Any())
+        {
+            <div class="empty-state">
+                <p>No followers yet</p>
+            </div>
+        }
+        else
+        {
+            <div class="users-list">
+                @foreach (var user in followers)
+                {
+                    <div class="user-card">
+                        <div class="avatar">
+                            @(user.Username?.Length > 0 ? user.Username![0].ToString().ToUpper() : "?")
+                        </div>
+                        <div class="user-info">
+                            <strong>@user.Username</strong>
+                            <small>@user.Email</small>
+                        </div>
+
+                        @if (user.Id != supabase.Auth.CurrentUser?.Id)
+                        {
+                            <button class="btn-follow-back @(following.Contains(user.Id) ? "following" : "")"
+                                    @onclick="() => ToggleFollow(user.Id)">
+                                @(following.Contains(user.Id) ? "Following" : "Follow Back")
+                            </button>
+                        }
+                    </div>
+                }
+            </div>
+        }
+    </div>
+</div>
+
+
+@code {
+    private void NavigateToFeed() => Nav.NavigateTo("/feed");
+    private List<Profiles> followers = new();
+    private List<string> following = new();
+
+    protected override async Task OnInitializedAsync() => await LoadData();
+
+    private async Task LoadData()
+    {
+        var userId = supabase.Auth.CurrentUser!.Id;
+
+        var followerResp = await supabase.From<Follows>()
+            .Select("follower_id")
+            .Filter("followee_id", Operator.Equals, userId)
+            .Get();
+
+        var followerIds = followerResp.Models.Select(x => x.FollowerId).ToList();
+        if (followerIds.Any())
+        {
+            var users = await supabase.From<Profiles>()
+                .Filter("id", Operator.In, followerIds)
+                .Get();
+            followers = users.Models ?? new();
+        }
+
+        var followingResp = await supabase.From<Follows>()
+            .Select("followee_id")
+            .Filter("follower_id", Operator.Equals, userId)
+            .Get();
+
+        following = followingResp.Models.Select(x => x.FolloweeId).ToList();
+    }
+
+    private async Task ToggleFollow(string userIdToFollow)
+    {
+        if (following.Contains(userIdToFollow))
+        {
+            await supabase.From<Follows>()
+                .Filter("follower_id", Operator.Equals, supabase.Auth.CurrentUser!.Id)
+                .Filter("followee_id", Operator.Equals, userIdToFollow)
+                .Delete();
+            following.Remove(userIdToFollow);
+        }
+        else
+        {
+            await supabase.From<Follows>()
+                .Insert(new Follows { FollowerId = supabase.Auth.CurrentUser!.Id, FolloweeId = userIdToFollow });
+            following.Add(userIdToFollow);
+        }
+        StateHasChanged();
+    }
+}

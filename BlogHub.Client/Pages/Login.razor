@@ -1,0 +1,110 @@
+﻿@page "/login"
+@using Supabase.Gotrue
+@using System.ComponentModel.DataAnnotations
+@inject Supabase.Client SupabaseClient
+@inject NavigationManager Nav
+@inject IJSRuntime JS
+
+<div class="auth-container">
+    <div class="auth-card">
+        <div class="auth-header">
+            <i data-lucide="log-in" class="auth-icon"></i>
+            <h1>Welcome Back</h1>
+            <p>Log in to continue to BlogHub</p>
+        </div>
+
+        <EditForm Model="@model" OnValidSubmit="HandleLogin">
+            <DataAnnotationsValidator />
+
+            <div class="input-group">
+                <InputText @bind-Value="model.Email" placeholder="Email" type="email" class="glass-input" />
+            </div>
+
+            <div class="input-group">
+                <InputText @bind-Value="model.Password" placeholder="Password" type="password" class="glass-input" />
+            </div>
+
+            @if (!string.IsNullOrEmpty(Message))
+            {
+                <div class="message-box @(IsError ? "error" : "success")">
+                    <i data-lucide="@(IsError ? "alert-circle" : "check-circle")"></i>
+                    <span>@Message</span>
+                </div>
+            }
+
+            <button type="submit" class="auth-submit-btn" disabled="@isLoading">
+                @if (isLoading)
+                {
+                    <i data-lucide="loader-2" class="spin"></i>
+                    <span>Signing in...</span>
+                }
+                else
+                {
+                    <span>Login</span>
+                    <i data-lucide="arrow-right"></i>
+                }
+            </button>
+        </EditForm>
+
+        <div class="auth-footer">
+            <p>
+                New to BlogHub?
+            <a href="register">Create account</a></p>
+                
+        </div>
+    </div>
+</div>
+
+@code {
+    private void NavigateToRegister() => Nav.NavigateTo("/register");
+    private LoginModel model = new();
+    private string Message = "";
+    private bool IsError = false;
+    private bool isLoading = false;
+
+    private class LoginModel
+    {
+        [Required, EmailAddress] public string Email { get; set; } = "";
+        [Required, MinLength(6)] public string Password { get; set; } = "";
+    }
+
+    private async Task HandleLogin()
+    {
+        isLoading = true;
+        Message = "";
+        IsError = false;
+        StateHasChanged();
+
+        try
+        {
+            var session = await SupabaseClient.Auth.SignIn(model.Email, model.Password);
+
+            if (session?.User == null)
+            {
+                Message = "Invalid email or password. Please try again.";
+                IsError = true;
+                isLoading = false;
+                return;
+            }
+
+            await JS.InvokeVoidAsync("localStorage.setItem",
+                "sb-pcknnnjurlbkhoimzwgu-auth-token", session.AccessToken);
+
+            await SupabaseClient.Auth.SetSession(session.AccessToken, session.RefreshToken!);
+
+            await Task.Delay(100);
+
+            Nav.NavigateTo("/feed");
+        }
+        catch (Exception ex)
+        {
+            Message = "Login failed: " + ex.Message;
+            IsError = true;
+        }
+        finally
+        {
+            isLoading = false;
+            StateHasChanged();
+        }
+    }
+}

@@ -1,0 +1,293 @@
+﻿@page "/post/{MongoId}"
+@using Supabase
+@using BlogHub.Shared.Models
+@using System.Net.Http.Headers
+@inject Supabase.Client SupabaseClient
+@inject HttpClient Http
+@inject NavigationManager Nav
+@inject IJSRuntime JS
+
+@if (post == null)
+{
+    <div class="full-page" style="display:flex; justify-content:center; align-items:center;">
+        <p><em>Loading post...</em></p>
+    </div>
+}
+else
+{
+    <div class="full-page post-detail-page">
+        <div class="glass-card post-glass-card" style="position: relative; max-width: 720px;">
+            <button class="close-btn" @onclick="NavigateToFeed">×</button>
+
+            @if (!string.IsNullOrEmpty(post.ImageUrl))
+            {
+                <div class="post-hero-image">
+                    <img src="@post.ImageUrl" alt="@post.Title" />
+                </div>
+            }
+
+            <div class="post-header">
+                <h1>@post.Title</h1>
+                <div class="post-meta">
+                    <strong>
+                        <span class="author-link" @onclick="() => NavigateToUserPosts(post.UserId)">
+                            @post.Author
+                        </span>
+                    </strong>
+                    • @post.CreatedAt.ToString("MMM dd, yyyy")
+                </div>
+
+                @if (post.Categories != null && post.Categories.Any())
+                {
+                    <div class="categories">
+                        @foreach (var cat in post.Categories)
+                        {
+                            <span class="cat-tag">@cat</span>
+                        }
+                    </div>
+                }
+            </div>
+
+            <div class="post-body">
+                @((MarkupString)post.Content)
+            </div>
+
+            <div class="post-actions">
+                <div class="actions-row">
+                    <button @onclick="ToggleLike" class="action-btn like-btn @(isLiked ? "liked" : "")">
+                        <i data-lucide="heart" style="width: 24px; height: 24px; margin-right: 8px;"></i>
+                        <span class="action-text">@(isLiked ? "Unlike" : "Like")</span>
+                    </button>
+                    <button @onclick="FocusComment" class="action-btn comment-btn">
+                        <i data-lucide="message-circle" style="width: 24px; height: 24px; margin-right: 8px;"></i>
+                        <span class="action-text">Comment</span>
+                    </button>
+                </div>
+                <div class="like-count-wrapper">
+                    <span class="like-count">❤️ @likeCount likes</span>
+                </div>
+            </div>
+
+            @if (comments.Any())
+            {
+                <div class="comments-section">
+                    <div class="comments-header">
+                        <h3 class="comments-title">Comments (@comments.Count)</h3>
+                    </div>
+                    <div class="comments-list">
+                        @foreach (var c in comments)
+                        {
+                            <div class="comment-item">
+                                <div class="comment-avatar">@(c.UserName?[0].ToString().ToUpper() ?? "?")</div>
+                                <div class="comment-content">
+                                    <div class="comment-header">
+                                        <strong class="comment-username">@c.UserName</strong>
+                                        <small class="comment-time">@(c.CreatedAt?.ToString("HH:mm • MMM dd") ?? "")</small>
+                                    </div>
+                                    <p class="comment-text">@c.Content</p>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class="empty-comments">
+                    <p>No comments yet. Be the first to comment!</p>
+                </div>
+            }
+
+            <EditForm Model="commentModel" OnValidSubmit="AddComment" class="comment-form">
+                <div class="comment-input-container">
+                    <div class="comment-avatar current-user-avatar">
+                        @(currentUserInitial)
+                    </div>
+                    <div class="comment-input-wrapper">
+                        <InputTextArea @bind-Value="commentModel.Content"
+                                       placeholder="Add a comment..."
+                                       class="comment-input"
+                                       rows="1" />
+                    </div>
+                    <button type="submit" class="comment-submit" disabled="@string.IsNullOrWhiteSpace(commentModel.Content)">
+                        <i data-lucide="send"></i>
+                    </button>
+                </div>
+            </EditForm>
+        </div>
+    </div>
+}
+
+@code {
+    [Parameter] public string MongoId { get; set; } = "";
+
+    private BlogPost? post;
+    private bool isLiked;
+    private int likeCount;
+    private List<Comment> comments = new();
+    private CommentModel commentModel = new();
+    private string? currentUserId;
+    private string currentUserInitial => SupabaseClient.Auth.CurrentUser?.UserMetadata?["username"]?.ToString()[0].ToString().ToUpper() ?? "U";
+
+    private Timer? pollingTimer;
+    private const string ApiBase = "https://localhost:7204/api/blog";
+
+    protected override async Task OnInitializedAsync()
+    {
+        var session = SupabaseClient.Auth.CurrentSession;
+        if (session?.User == null)
+        {
+            Nav.NavigateTo("/login");
+            return;
+        }
+
+        currentUserId = session.User.Id;
+        await LoadPost();
+        await LoadLikesAndComments();
+
+        pollingTimer = new Timer(async _ => await RefreshLikesAndComments(), null, TimeSpan.Zero, TimeSpan.FromSeconds(6));
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+            await JS.InvokeVoidAsync("initLucideIcons");
+    }
+
+    private async Task LoadPost()
+    {
+        try
+        {
+            SetAuthHeader();
+            post = await Http.GetFromJsonAsync<BlogPost>($"{ApiBase}/{MongoId}");
+            if (post == null)
+            {
+                await JS.InvokeVoidAsync("alert", "Post not found.");
+                Nav.NavigateTo("/feed");
+            }
+        }
+        catch (Exception ex)
+        {
+            await JS.InvokeVoidAsync("alert", $"Error loading post: {ex.Message}");
+        }
+    }
+
+    private async Task LoadLikesAndComments()
+    {
+        try
+        {
+            var likes = await SupabaseClient.From<PostLike>()
+                .Select("user_id")
+                .Where(l => l.PostMongoId == MongoId)
+                .Get();
+
+            likeCount = likes.Models.Count;
+            isLiked = likes.Models.Any(l => l.UserId == currentUserId);
+
+            var commentsResult = await SupabaseClient.From<PostComment>()
+                .Select("*")
+                .Where(c => c.PostMongoId == MongoId)
+                .Order("created_at", Supabase.Postgrest.Constants.Ordering.Ascending)
+                .Get();
+
+            comments = commentsResult.Models.Select(c => new Comment
+            {
+                UserName = c.UserName ?? "Anonymous",
+                Content = c.Content,
+                CreatedAt = c.CreatedAt
+            }).ToList();
+        }
+        catch (Exception ex)
+        {
+            await JS.InvokeVoidAsync("alert", $"Error loading data: {ex.Message}");
+        }
+    }
+
+    private async Task RefreshLikesAndComments()
+    {
+        await InvokeAsync(async () =>
+        {
+            await LoadLikesAndComments();
+            StateHasChanged();
+        });
+    }
+
+    private async Task ToggleLike()
+    {
+        SetAuthHeader();
+        try
+        {
+            if (isLiked)
+            {
+                await Http.DeleteAsync($"{ApiBase}/{MongoId}/like");
+                isLiked = false;
+                likeCount--;
+            }
+            else
+            {
+                await Http.PostAsJsonAsync($"{ApiBase}/{MongoId}/like", new { });
+                isLiked = true;
+                likeCount++;
+            }
+        }
+        catch (Exception ex)
+        {
+            await JS.InvokeVoidAsync("alert", "Like failed: " + ex.Message);
+        }
+        StateHasChanged();
+    }
+
+    private async Task AddComment()
+    {
+        if (string.IsNullOrWhiteSpace(commentModel.Content)) return;
+
+        SetAuthHeader();
+        try
+        {
+            var userName = SupabaseClient.Auth.CurrentUser?.UserMetadata?["username"]?.ToString()
+                           ?? SupabaseClient.Auth.CurrentUser?.Email?.Split('@')[0] ?? "User";
+
+            await Http.PostAsJsonAsync($"{ApiBase}/{MongoId}/comment", new
+            {
+                Content = commentModel.Content.Trim(),
+                UserName = userName
+            });
+
+            commentModel.Content = "";
+            await RefreshLikesAndComments();
+        }
+        catch (Exception ex)
+        {
+            await JS.InvokeVoidAsync("alert", "Comment failed: " + ex.Message);
+        }
+    }
+
+    private void SetAuthHeader()
+    {
+        var token = SupabaseClient.Auth.CurrentSession?.AccessToken;
+        if (!string.IsNullOrEmpty(token))
+            Http.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+    }
+
+    private async Task FocusComment()
+    {
+        await JS.InvokeVoidAsync("eval", "document.querySelector('.comment-input')?.focus()");
+    }
+
+    private void NavigateToUserPosts(string userId) => Nav.NavigateTo($"/user/{userId}/posts");
+    private void NavigateToFeed() => Nav.NavigateTo("/feed");
+
+    public void Dispose() => pollingTimer?.Dispose();
+
+    public class Comment
+    {
+        public string UserName { get; set; } = "";
+        public string Content { get; set; } = "";
+        public DateTime? CreatedAt { get; set; }
+    }
+
+    public class CommentModel
+    {
+        public string Content { get; set; } = "";
+    }
+}

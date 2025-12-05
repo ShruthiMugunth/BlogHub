@@ -1,0 +1,31 @@
+﻿@page "/login-or-reg"
+@using Microsoft.AspNetCore.Components.Web
+
+<div class="welcome-container">
+    <div class="welcome-card">
+        <div class="logo-section">
+            <i data-lucide="pen-tool" class="logo-icon"></i>
+            <h1>BlogHub</h1>
+        </div>
+
+        <div class="actions">
+            <button class="action-btn login-btn" @onclick="NavigateToLogin">
+                <span>Sign In</span>
+                <i data-lucide="log-in" class="btn-icon"></i>
+            </button>
+
+            <button class="action-btn register-btn" @onclick="NavigateToRegister">
+                <span>Create Account</span>
+                <i data-lucide="user-plus" class="btn-icon"></i>
+            </button>
+        </div>
+
+    </div>
+</div>
+
+@code {
+    [Inject] NavigationManager Nav { get; set; } = default!;
+
+    private void NavigateToLogin() => Nav.NavigateTo("/login");
+    private void NavigateToRegister() => Nav.NavigateTo("/register");
+}

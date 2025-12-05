@@ -1,0 +1,113 @@
+﻿@page "/register"
+@using Supabase.Gotrue
+@using System.ComponentModel.DataAnnotations
+@inject Supabase.Client SupabaseClient
+@inject NavigationManager Nav
+
+<div class="auth-container">
+    <div class="auth-card">
+        <div class="auth-header">
+            <i data-lucide="user-plus" class="auth-icon"></i>
+            <h1>Create Account</h1>
+            <p>Join the BlogHub community</p>
+        </div>
+
+        <EditForm Model="@model" OnValidSubmit="HandleRegister">
+            <DataAnnotationsValidator />
+
+            <div class="input-group">
+                <InputText @bind-Value="model.Username" placeholder="Username" class="glass-input" />
+                <ValidationMessage For="() => model.Username" class="validation-error" />
+            </div>
+
+            <div class="input-group">
+                <InputText @bind-Value="model.Email" placeholder="Email" type="email" class="glass-input" />
+                <ValidationMessage For="() => model.Email" class="validation-error" />
+            </div>
+
+            <div class="input-group">
+                <InputText @bind-Value="model.Password" placeholder="Password" type="password" class="glass-input" />
+                <ValidationMessage For="() => model.Password" class="validation-error" />
+            </div>
+
+            @if (!string.IsNullOrEmpty(Message))
+            {
+                <div class="message-box @(IsError ? "error" : "success")">
+                    <i data-lucide="@(IsError ? "alert-circle" : "check-circle")"></i>
+                    <span>@Message</span>
+                </div>
+            }
+
+            <button type="submit" class="auth-submit-btn" disabled="@isLoading">
+                @if (isLoading)
+                {
+                    <i data-lucide="loader-2" class="spin"></i>
+                    <span>Creating Account...</span>
+                }
+                else
+                {
+                    <span>Register</span>
+                    <i data-lucide="arrow-right"></i>
+                }
+            </button>
+        </EditForm>
+
+        <div class="auth-footer">
+            <p>
+                Already have an account?<p><a href="/login">Sign in</a></p>
+            </p>
+        </div>
+    </div>
+</div>
+
+@code {
+    private void NavigateToLogin() => Nav.NavigateTo("/login");
+    private RegisterModel model = new();
+    private string Message = "";
+    private bool IsError = false;
+    private bool isLoading = false;
+
+    private class RegisterModel
+    {
+        [Required(ErrorMessage = "Username is required")]
+        [StringLength(30, MinimumLength = 3)]
+        public string Username { get; set; } = "";
+
+        [Required, EmailAddress]
+        public string Email { get; set; } = "";
+
+        [Required, MinLength(6)]
+        public string Password { get; set; } = "";
+    }
+
+    private async Task HandleRegister()
+    {
+        isLoading = true;
+        Message = ""; IsError = false;
+        StateHasChanged();
+
+        try
+        {
+            await SupabaseClient.Auth.SignUp(model.Email, model.Password, new SignUpOptions
+            {
+                Data = new Dictionary<string, object> { { "username", model.Username } }
+            });
+
+            Message = "Success! Check your email and click the confirmation link to activate your account.";
+            IsError = false;
+            model = new();
+        }
+        catch (Exception ex)
+        {
+            Message = ex.Message.Contains("Unable to validate email address")
+                ? "Please enter a valid email address."
+                : "Registration failed: " + ex.Message;
+            IsError = true;
+        }
+        finally
+        {
+            isLoading = false;
+            StateHasChanged();
+        }
+    }
+}

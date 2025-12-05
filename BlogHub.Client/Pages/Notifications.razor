@@ -1,0 +1,178 @@
+﻿@page "/notifications"
+@using BlogHub.Shared.Models
+@using System
+@using static Supabase.Postgrest.Constants
+@inject Supabase.Client SupabaseClient
+@inject NavigationManager Nav
+@inject IJSRuntime JS
+
+<div class="notif-page full-page">
+    <div class="glass-card notifications-card" style="position: relative; max-width: 660px;">
+        <button class="close-btn" @onclick="NavigateToFeed">×</button>
+
+        <h2 class="notif-title">Notifications</h2>
+
+        @if (notifications.Count == 0)
+        {
+            <div class="notifications-empty">
+                <i data-lucide="bell-off" class="empty-bell"></i>
+                <h3>All caught up!</h3>
+                <p>No new notifications right now. You're all set!</p>
+            </div>
+        }
+        else
+        {
+            <div class="notifications-list">
+                @foreach (var n in notifications)
+                {
+                    <div class="notif-item" @onclick="() => HandleNotificationClick(n)">
+                        <div class="avatar notif-avatar">
+                            @(string.IsNullOrEmpty(n.Actor) ? "?" : n.Actor[0].ToString().ToUpper())
+                        </div>
+                        <div class="details notif-details">
+                            <div class="message notif-message">
+                                <strong>@n.Actor</strong> @n.Message
+                            </div>
+                            <div class="notif-time">@n.Time</div>
+                        </div>
+                        <div class="notif-action-icon">
+                            @if (n.Type == "follow")
+                            {
+                                <i data-lucide="user-plus"></i>
+                            }
+                            else if (n.Type == "like")
+                            {
+                                <i data-lucide="heart" style="color:#e74c3c;"></i>
+                            }
+                            else if (n.Type == "comment")
+                            {
+                                <i data-lucide="message-circle" style="color:#3498db;"></i>
+                            }
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+    </div>
+</div>
+
+@code {
+    private void NavigateToFeed() => Nav.NavigateTo("/feed");
+    private List<Notif> notifications = new();
+    private Timer? timer;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadNotifications();
+        timer = new Timer(async _ => await InvokeAsync(LoadNotifications), null, 10000, 10000);
+    }
+
+    private async Task LoadNotifications()
+    {
+        notifications.Clear();
+        var userId = SupabaseClient.Auth.CurrentUser?.Id;
+        if (string.IsNullOrEmpty(userId)) return;
+
+        var newFollowers = await SupabaseClient
+            .From<Follows>()
+            .Select("*")
+            .Where(f => f.FolloweeId == userId)
+            .Order("created_at", Ordering.Descending)
+            .Get();
+
+        foreach (var f in newFollowers.Models)
+        {
+            var profile = await SupabaseClient.From<Profiles>().Where(p => p.Id == f.FollowerId).Single();
+            notifications.Add(new Notif
+            {
+                ActorId = f.FollowerId,
+                Actor = profile?.Username ?? "Someone",
+                Message = "started following you",
+                Type = "follow",
+                CreatedAt = f.CreatedAt ?? DateTime.UtcNow
+            });
+        }
+
+        var myPosts = await SupabaseClient.From<PostsFeed>().Where(p => p.AuthorId == userId).Get();
+        foreach (var post in myPosts.Models)
+        {
+            var likes = await SupabaseClient.From<PostLike>()
+                .Where(l => l.PostMongoId == post.MongoId)
+                .Order("created_at", Ordering.Descending)
+                .Get();
+
+            foreach (var l in likes.Models)
+            {
+                var liker = await SupabaseClient.From<Profiles>().Where(p => p.Id == l.UserId).Single();
+                notifications.Add(new Notif
+                {
+                    ActorId = l.UserId,
+                    Actor = liker?.Username ?? "Someone",
+                    Message = $"liked your post '{post.Title}'",
+                    Type = "like",
+                    PostMongoId = post.MongoId,
+                    CreatedAt = l.CreatedAt ?? DateTime.UtcNow
+                });
+            }
+
+            var comments = await SupabaseClient.From<PostComment>()
+                .Where(c => c.PostMongoId == post.MongoId)
+                .Order("created_at", Ordering.Descending)
+                .Get();
+
+            foreach (var c in comments.Models)
+            {
+                var commenter = await SupabaseClient.From<Profiles>().Where(p => p.Id == c.UserId).Single();
+                notifications.Add(new Notif
+                {
+                    ActorId = c.UserId,
+                    Actor = commenter?.Username ?? "Someone",
+                    Message = $"commented on your post '{post.Title}'",
+                    Type = "comment",
+                    PostMongoId = post.MongoId,
+                    CreatedAt = c.CreatedAt ?? DateTime.UtcNow
+                });
+            }
+        }
+
+        notifications = notifications
+            .OrderByDescending(n => n.CreatedAt)
+            .Take(50)
+            .ToList();
+
+        StateHasChanged();
+    }
+
+    private void HandleNotificationClick(Notif n)
+    {
+        if (n.Type == "follow")
+            Nav.NavigateTo($"/user/{n.ActorId}/posts");
+        else if (!string.IsNullOrEmpty(n.PostMongoId))
+            Nav.NavigateTo($"/post/{n.PostMongoId}");
+    }
+
+    public void Dispose() => timer?.Dispose();
+
+    public class Notif
+    {
+        public string ActorId { get; set; } = "";
+        public string Actor { get; set; } = "";
+        public string Message { get; set; } = "";
+        public string Type { get; set; } = "";
+        public string? PostMongoId { get; set; }
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+
+        public string Time
+        {
+            get
+            {
+                var diff = DateTime.UtcNow - CreatedAt;
+                if (diff.TotalSeconds < 60) return "Just now";
+                if (diff.TotalMinutes < 60) return $"{(int)diff.TotalMinutes}m ago";
+                if (diff.TotalHours < 24) return $"{(int)diff.TotalHours}h ago";
+                if (diff.TotalDays < 7) return $"{(int)diff.TotalDays}d ago";
+                return CreatedAt.ToString("MMM dd");
+            }
+        }
+    }
+}

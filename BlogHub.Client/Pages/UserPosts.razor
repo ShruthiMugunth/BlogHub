@@ -1,0 +1,154 @@
+﻿@page "/user/{UserId}/posts"
+@using BlogHub.Shared.Models
+@using System.Net.Http.Headers
+@inject HttpClient Http
+@inject NavigationManager Nav
+@inject Supabase.Client SupabaseClient
+@inject IJSRuntime JS
+
+@if (userProfile == null)
+{
+    <div class="full-page" style="display:flex;justify-content:center;align-items:center;">
+        <p><em>Loading profile...</em></p>
+    </div>
+}
+else
+{
+    <div class="full-page user-posts-page">
+        <div class="glass-card user-posts-card" style="position:relative; max-width:680px;">
+            <button class="close-btn" @onclick="NavigateToFeed">×</button>
+
+            <div class="profile-header-centered" style="margin-bottom:1.5rem;">
+                <div class="avatar-large">
+                    @(string.IsNullOrEmpty(userProfile.Username) ? "?" : userProfile.Username![0].ToString().ToUpper())
+                </div>
+                <div class="profile-info-centered">
+                    <h2 class="username">@userProfile.Username</h2>
+                </div>
+            </div>
+
+            @if (posts == null)
+            {
+                <p style="text-align:center;padding:3rem 0;"><em>Loading posts...</em></p>
+            }
+            else if (!posts.Any())
+            {
+                <div class="empty-posts" style="padding:4rem 2rem;">
+                    <h3>No posts yet</h3>
+                    <p>This user hasn't shared anything.</p>
+                </div>
+            }
+            else
+            {
+                <div class="posts-list">
+                    @foreach (var post in posts)
+                    {
+                        <div class="post-card" @onclick="() => NavigateToPost(post.MongoId)">
+                            @if (!string.IsNullOrEmpty(post.ImageUrl))
+                            {
+                                <div class="post-image">
+                                    <img src="@post.ImageUrl" alt="@post.Title" />
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="post-image" style="background:#111;"></div>
+                            }
+
+                            <div class="post-content">
+                                <h3>@post.Title</h3>
+                                <div class="post-meta">
+                                    <strong>@post.Author</strong> • @post.CreatedAt.ToString("MMM dd, yyyy")
+                                </div>
+
+                                @if (post.Categories?.Any() == true)
+                                {
+                                    <div class="categories">
+                                        @foreach (var cat in post.Categories)
+                                        {
+                                            <span class="cat-tag">@cat</span>
+                                        }
+                                    </div>
+                                }
+
+                                <p style="margin:0.8rem 0 0; opacity:0.88; line-height:1.5; color:#000;">
+                                    @(post.Content.Length > 160
+                                        ? post.Content.Substring(0, 160) + "..."
+                                        : post.Content)
+                                </p>
+                            </div>
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+    </div>
+}
+
+@code {
+    [Parameter] public string UserId { get; set; } = "";
+    private void NavigateToFeed() => Nav.NavigateTo("/feed");
+
+    private List<BlogPost> posts = new();
+    private Profiles? userProfile;  
+
+    protected override async Task OnInitializedAsync()
+    {
+        var session = SupabaseClient.Auth.CurrentSession;
+        if (session?.User == null)
+        {
+            Nav.NavigateTo("/login");
+            return;
+        }
+
+        await Task.WhenAll(LoadUserProfile(), LoadUserPosts());
+    }
+
+    private async Task LoadUserProfile()
+    {
+        try
+        {
+            var result = await SupabaseClient
+                .From<Profiles>()
+                .Where(p => p.Id == UserId)
+                .Single();
+
+            userProfile = result;
+        }
+        catch
+        {
+            userProfile = new Profiles { Username = "Unknown User" };
+        }
+    }
+
+    private async Task LoadUserPosts()
+    {
+        try
+        {
+            var token = SupabaseClient.Auth.CurrentSession?.AccessToken;
+            if (!string.IsNullOrEmpty(token))
+                Http.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
+            var result = await Http.GetFromJsonAsync<List<BlogPost>>($"https://localhost:7204/api/blog/user/{UserId}");
+            posts = result ?? new();
+        }
+        catch (Exception ex)
+        {
+            await JS.InvokeVoidAsync("alert", $"Error loading posts: {ex.Message}");
+            posts = new();
+        }
+    }
+
+    private void NavigateToPost(string mongoId) => Nav.NavigateTo($"/post/{mongoId}");
+
+    public class BlogPost
+    {
+        public string MongoId { get; set; } = "";
+        public string Title { get; set; } = "";
+        public string Author { get; set; } = "";
+        public string Content { get; set; } = "";
+        public string? ImageUrl { get; set; }
+        public List<string>? Categories { get; set; }
+        public DateTime CreatedAt { get; set; }
+    }
+}

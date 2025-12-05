@@ -1,0 +1,133 @@
+﻿@page "/profile"
+@using BlogHub.Shared.Models
+@using static Supabase.Postgrest.Constants
+@inject Supabase.Client SupabaseClient
+@inject NavigationManager Nav
+@implements IDisposable
+
+<div class="profile-page">
+    <div class="profile-glass-card" style="position: relative;">
+        <button class="close-btn" @onclick="NavigateToFeed">×</button>
+
+        @if (profile == null)
+        {
+            <div class="loading-state">
+                <i data-lucide="loader-2" class="spin"></i>
+                <p>Loading your profile...</p>
+            </div>
+        }
+        else
+        {
+            <div class="profile-header-centered">
+                <div class="avatar-large">
+                    @(string.IsNullOrEmpty(profile.Username) ? "?" : profile.Username![0].ToString().ToUpper())
+                </div>
+                <div class="profile-info-centered">
+                    <h1 class="username">@profile.Username</h1>
+                    <p class="email">@profile.Email</p>
+                </div>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card" @onclick="NavigateToFollowing">
+                    <span class="stat-label">Following</span>
+                    <span class="stat-value">@followingCount</span>
+                </div>
+                <div class="stat-card" @onclick="NavigateToFollowers">
+                    <span class="stat-label">Followers</span>
+                    <span class="stat-value">@followersCount</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">Posts</span>
+                    <span class="stat-value">@myPosts.Count</span>
+                </div>
+            </div>
+
+            <div class="posts-section">
+                <h2 class="section-title">Your Posts</h2>
+
+                @if (myPosts.Count == 0)
+                {
+                    <div class="empty-posts">
+                        <p>No posts yet.</p>
+                        <button class="create-link-btn" @onclick="NavigateToNewBlog">
+                            Create your first blog!
+                        </button>
+                    </div>
+                }
+                else
+                {
+                    <div class="posts-grid">
+                        @foreach (var post in myPosts)
+                        {
+                            <div class="post-thumb" @onclick="() => NavigateToPost(post.MongoId)">
+                                @if (!string.IsNullOrEmpty(post.ImageUrl))
+                                {
+                                    <img src="@post.ImageUrl" alt="@post.Title" loading="lazy" />
+                                }
+                                else
+                                {
+                                    <div class="no-image">
+                                        <span>@post.Title</span>
+                                    </div>
+                                }
+                            </div>
+                        }
+                    </div>
+                }
+            </div>
+        }
+    </div>
+</div>
+
+@code {
+    private Profiles? profile;
+    private List<PostsFeed> myPosts = new();
+    private int followersCount, followingCount;
+    private Timer? refreshTimer;
+
+    private void NavigateToFeed() => Nav.NavigateTo("/feed");
+    private void NavigateToPost(string mongoId) => Nav.NavigateTo($"/post/{mongoId}");
+    private void NavigateToFollowers() => Nav.NavigateTo("/followers");
+    private void NavigateToFollowing() => Nav.NavigateTo("/following");
+    private void NavigateToNewBlog() => Nav.NavigateTo("/newblog");
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (SupabaseClient.Auth.CurrentUser == null)
+        {
+            Nav.NavigateTo("/login");
+            return;
+        }
+
+        await LoadProfileData();
+        refreshTimer = new Timer(async _ => await InvokeAsync(LoadProfileData), null, TimeSpan.FromSeconds(8), TimeSpan.FromSeconds(8));
+    }
+
+    private async Task LoadProfileData()
+    {
+        var userId = SupabaseClient.Auth.CurrentUser!.Id;
+
+        try
+        {
+            profile = await SupabaseClient.From<Profiles>().Where(p => p.Id == userId).Single();
+        }
+        catch
+        {
+            profile = new Profiles { Id = userId, Username = "User", Email = SupabaseClient.Auth.CurrentUser?.Email };
+        }
+
+        followersCount = (int)await SupabaseClient.From<Follows>().Where(f => f.FolloweeId == userId).Count(CountType.Exact);
+        followingCount = (int)await SupabaseClient.From<Follows>().Where(f => f.FollowerId == userId).Count(CountType.Exact);
+
+        var response = await SupabaseClient.From<PostsFeed>()
+            .Filter("author_id", Operator.Equals, userId)
+            .Order(x => x.CreatedAt, Ordering.Descending)
+            .Get();
+
+        myPosts = response.Models;
+        StateHasChanged();
+    }
+
+    public void Dispose() => refreshTimer?.Dispose();
+}

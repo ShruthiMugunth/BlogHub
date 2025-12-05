@@ -1,0 +1,206 @@
+﻿@page "/newblog"
+@using System.ComponentModel.DataAnnotations
+@inject Supabase.Client SupabaseClient
+@inject HttpClient Http
+@inject NavigationManager Nav
+<PageTitle>Create New Blog</PageTitle>
+
+<div class="newblog-page full-page">
+    <div class="glass-card" style="position: relative;">
+        <button class="close-btn" @onclick="NavigateToFeed">×</button>
+
+        <h2>Create New Blog</h2>
+
+        <EditForm Model="model" OnValidSubmit="SaveBlog">
+            <DataAnnotationsValidator />
+
+            <div class="mb-4">
+                <InputText @bind-Value="model.Title" class="input" placeholder="Blog Title" />
+                <ValidationMessage For="() => model.Title" class="text-danger mt-1 ms-3" />
+            </div>
+
+            <input value="@AuthorName" disabled class="input disabled" />
+
+            <InputFile OnChange="OnFileSelected" accept="image/*" class="file-input" style="margin:1rem 0;" />
+
+            @if (PreviewUrl != null)
+            {
+                <div style="position:relative; margin:1.4rem 0; border-radius:20px; overflow:hidden; box-shadow:0 12px 35px rgba(0,0,0,0.35);">
+                    <img src="@PreviewUrl" alt="Cover preview"
+                         style="width:100%; max-height:420px; object-fit:cover; display:block;" />
+                    <button type="button" @onclick="ClearImage"
+                            style="position:absolute; top:12px; right:12px; width:38px; height:38px;
+                                       background:rgba(0,0,0,0.75); color:white; border:none; border-radius:50%;
+                                       font-size:22px; cursor:pointer; backdrop-filter:blur(8px);">
+                        x
+                    </button>
+                </div>
+            }
+            else
+            {
+                <div style="height:140px; margin:1.4rem 0; background:rgba(0,0,0,0.06);
+                                border:2.5px dashed rgba(0,0,0,0.2); border-radius:20px;
+                                display:flex; align-items:center; justify-content:center; color:#333; font-size:0.95rem;">
+                    Tap to add a cover image (optional)
+                </div>
+            }
+
+            <textarea @bind="model.Content" class="textarea" placeholder="Write your blog content..." rows="10"></textarea>
+            <ValidationMessage For="() => model.Content" class="text-danger mt-1 ms-3" />
+
+            <div class="categories-section">
+                <p><strong>Select categories (optional):</strong></p>
+                <div class="categories-grid">
+                    @foreach (var cat in AvailableCategories)
+                    {
+                        <label class="category-chip">
+                            <input type="checkbox" checked="@SelectedCategories.Contains(cat)" @onchange="() => ToggleCategory(cat)" />
+                            <span class="@(SelectedCategories.Contains(cat) ? "selected" : "")">@cat</span>
+                        </label>
+                    }
+                </div>
+                <div class="custom-category-input">
+                    <InputText @bind-Value="CustomCategory" class="custom-input" placeholder="Add custom category..." />
+                    <button type="button" @onclick="AddCustomCategory" class="add-category-btn"
+                            disabled="@string.IsNullOrWhiteSpace(CustomCategory)">
+                        Add
+                    </button>
+                </div>
+            </div>
+
+            @if (!string.IsNullOrEmpty(Message))
+            {
+                <div class="message @(IsError ? "error" : "success")">
+                    @Message
+                </div>
+            }
+
+            <button type="submit" class="publish-btn" disabled="@isSaving">
+                @(isSaving ? "Publishing..." : "Publish Blog")
+            </button>
+        </EditForm>
+    </div>
+</div>
+
+@code {
+    private void NavigateToFeed() => Nav.NavigateTo("/feed");
+
+    private BlogModel model = new();
+    private string AuthorName = "Guest";
+    private IBrowserFile? selectedFile;
+    private string? PreviewUrl;
+    private string Message = "";
+    private bool IsError;
+    private bool isSaving;
+
+    private readonly List<string> AvailableCategories = new()
+    {
+        "Technology", "Programming", "AI", "Web Development", "Design", "Lifestyle", "Travel", "Food", "Health", "Startups", "Gaming"
+    };
+    private HashSet<string> SelectedCategories = new();
+    private string CustomCategory = "";
+
+    public class BlogModel
+    {
+        [Required(ErrorMessage = "Title is required")]
+        public string Title { get; set; } = "";
+
+        [Required(ErrorMessage = "Content is required")]
+        public string Content { get; set; } = "";
+    }
+
+    protected override void OnInitialized()
+    {
+        var user = SupabaseClient.Auth.CurrentUser;
+        AuthorName = user?.Email?.Split('@')[0] ?? "Guest";
+    }
+
+    private void ToggleCategory(string cat)
+    {
+        if (SelectedCategories.Contains(cat)) SelectedCategories.Remove(cat);
+        else SelectedCategories.Add(cat);
+    }
+
+    private void AddCustomCategory()
+    {
+        var cat = CustomCategory.Trim();
+        if (string.IsNullOrEmpty(cat)) return;
+        if (!AvailableCategories.Contains(cat, StringComparer.OrdinalIgnoreCase)) AvailableCategories.Add(cat);
+        if (!SelectedCategories.Contains(cat, StringComparer.OrdinalIgnoreCase)) SelectedCategories.Add(cat);
+        CustomCategory = "";
+    }
+
+    private async Task OnFileSelected(InputFileChangeEventArgs e)
+    {
+        selectedFile = e.File;
+        if (selectedFile == null) return;
+
+        var ms = new MemoryStream();
+        await selectedFile.OpenReadStream(10_000_000).CopyToAsync(ms);
+        PreviewUrl = $"data:{selectedFile.ContentType};base64,{Convert.ToBase64String(ms.ToArray())}";
+    }
+
+    private void ClearImage()
+    {
+        selectedFile = null;
+        PreviewUrl = null;
+    }
+
+    private async Task SaveBlog()
+    {
+        isSaving = true;
+        Message = "Publishing...";
+        IsError = false;
+        StateHasChanged();
+
+        try
+        {
+            string imageUrl = "";
+            if (selectedFile != null)
+            {
+                var fileName = $"{Guid.NewGuid()}_{selectedFile.Name}";
+                using var stream = selectedFile.OpenReadStream(10_000_000);
+                var bytes = new byte[selectedFile.Size];
+                await stream.ReadAsync(bytes);
+                await SupabaseClient.Storage.From("blog-images").Upload(bytes, fileName);
+                imageUrl = SupabaseClient.Storage.From("blog-images").GetPublicUrl(fileName);
+            }
+
+            var payload = new
+            {
+                Title = model.Title,
+                Content = model.Content,
+                ImageUrl = imageUrl,
+                Categories = SelectedCategories.ToList()
+            };
+
+            var response = await Http.PostAsJsonAsync("api/blog", payload);
+
+            if (response.IsSuccessStatusCode)
+            {
+                Message = "Blog published successfully!";
+                IsError = false;
+                model = new();
+                selectedFile = null;
+                PreviewUrl = null;
+                SelectedCategories.Clear();
+                CustomCategory = "";
+            }
+            else
+            {
+                Message = "Failed to publish: " + await response.Content.ReadAsStringAsync();
+                IsError = true;
+            }
+        }
+        catch (Exception ex)
+        {
+            Message = "Error: " + ex.Message;
+            IsError = true;
+        }
+        finally
+        {
+            isSaving = false;
+            StateHasChanged();
+        }
+    }
+}

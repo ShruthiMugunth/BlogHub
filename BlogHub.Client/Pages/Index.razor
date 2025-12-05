@@ -1,0 +1,210 @@
+﻿@page "/index"
+@using Supabase.Gotrue
+@inject Supabase.Client SupabaseClient
+@inject NavigationManager Nav
+@inject IJSRuntime JS
+
+@if (SupabaseClient.Auth.CurrentSession?.User == null)
+{
+    Nav.NavigateTo("/login");
+    return;
+}
+
+<div class="hub-container">
+    <div class="hero-card">
+        <h3>Hello, @(Username)!</h3>
+    </div>
+    <div class="actions-list">
+        <div class="action-item" @onclick= "NavigateToFeed">
+            <i data-lucide="home"></i>
+            <strong>Feed</strong>
+            <i data-lucide="chevron-right" class="arrow"></i>
+        </div>
+
+        <div class="action-item" @onclick="NavigateToNewBlog">
+            <i data-lucide="edit-3"></i>
+            <strong>Write Blog</strong>
+            <i data-lucide="chevron-right" class="arrow"></i>
+        </div>
+
+        <div class="action-item" @onclick="NavigateToProfile">
+            <i data-lucide="user"></i>
+            <strong>Profile</strong>
+            <i data-lucide="chevron-right" class="arrow"></i>
+        </div>
+
+        <div class="action-item" @onclick="NavigateToNotifications">
+            <i data-lucide="bell"></i>
+            <strong>Notifications</strong>
+            <i data-lucide="chevron-right" class="arrow"></i>
+        </div>
+    </div>
+
+    <button class="logout-btn" @onclick="HandleLogout">
+        <i data-lucide="log-out"></i>
+        <span>Logout</span>
+    </button>
+</div>
+
+@code {
+    private void NavigateToFeed() => Nav.NavigateTo("/feed");
+    private void NavigateToNewBlog() => Nav.NavigateTo("/newblog");
+    private void NavigateToProfile() => Nav.NavigateTo("/profile");
+    private void NavigateToNotifications() => Nav.NavigateTo("/notifications");
+    private string Username => SupabaseClient.Auth.CurrentUser?.UserMetadata?["username"]?.ToString()
+        ?? SupabaseClient.Auth.CurrentUser?.Email?.Split('@')[0] ?? "Creator";
+
+    private async Task HandleLogout()
+    {
+        var ok = await JS.InvokeAsync<bool>("confirm", "Leave BlogHub?");
+        if (ok)
+        {
+            await SupabaseClient.Auth.SignOut();
+            await JS.InvokeVoidAsync("localStorage.removeItem", "sb-pcknnnjurlbkhoimzwgu-auth-token");
+            Nav.NavigateTo("/login");
+        }
+    }
+
+    protected override void OnInitialized()
+    {
+        if (SupabaseClient.Auth.CurrentSession?.User == null)
+            Nav.NavigateTo("/login");
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JS.InvokeVoidAsync("lucide.createIcons");
+        }
+    }
+}
+
+<style>
+    .hub-container {
+        min-height: 100vh;
+        background: url('/shrusun.jpg') center/cover no-repeat fixed;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 3rem;
+        padding: 2rem 1rem;
+    }
+
+    .hero-card {
+        background: rgba(255, 255, 255, 0.22);
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
+        border-radius: 32px;
+        border: 2px solid rgba(255, 255, 255, 0.4);
+        padding: 3rem 2.5rem;
+        text-align: center;
+        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.42);
+        max-width: 420px;
+        width: 100%;
+        animation: floatIn 0.9s ease-out;
+    }
+
+    .hero-icon {
+        width: 78px;
+        height: 78px;
+        stroke-width: 2.4;
+        margin-bottom: 1rem;
+        color: #000;
+    }
+
+    .hero-card h3 {
+        font-size: 2.6rem;
+        font-weight: 800;
+        margin: 0;
+        color: #000;
+        letter-spacing: -1px;
+    }
+
+    .actions-list {
+        width: 100%;
+        max-width: 360px;
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+
+    .action-item {
+        background: rgba(255, 255, 255, 0.23);
+        backdrop-filter: blur(20px);
+        border-radius: 20px;
+        padding: 1rem 1.4rem;
+        display: flex;
+        align-items: center;
+        gap: 1.2rem;
+        cursor: pointer;
+        transition: all 0.35s ease;
+        border: 2.3px solid rgba(255, 255, 255, 0.35);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.16);
+    }
+
+    .action-item:hover {
+        transform: translateY(-5px);
+        background: rgba(255, 255, 255, 0.32);
+        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .action-item i:first-child {
+        width: 42px;
+        height: 42px;
+        stroke-width: 2.5;
+        color: #000;
+    }
+
+    .action-item strong {
+        font-size: 1.18rem;
+        font-weight: 700;
+        color: #000;
+        flex: 1;
+    }
+
+    .arrow {
+        width: 28px;
+        height: 28px;
+        opacity: 0.6;
+        transition: all 0.3s;
+    }
+
+    .action-item:hover .arrow {
+        opacity: 1;
+        transform: translateX(6px);
+    }
+
+    .logout-btn {
+        background: transparent;
+        color: #000;
+        border: 2.6px solid red;
+        padding: 0.9rem 2.2rem;
+        border-radius: 50px;
+        font-weight: 700;
+        font-size: 1.1rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        transition: all 0.3s ease;
+        margin-top: 1rem;
+    }
+
+    .logout-btn:hover {
+        background:red;
+        color: white;
+        transform: translateY(-3px);
+    }
+
+    .logout-btn i {
+        width: 24px;
+        height: 24px;
+    }
+
+        .hero-card h3 { font-size: 2.3rem; }
+        .action-item { padding: 1rem; }
+        .action-item strong { font-size: 1.1rem; }
+    
+</style>

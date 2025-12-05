@@ -1,0 +1,213 @@
+﻿@page "/suggested"
+@using BlogHub.Shared.Models
+@inject Supabase.Client SupabaseClient
+@inject NavigationManager Nav
+@inject IJSRuntime JS
+
+<div class="suggested-page">
+    <div class="glass-card">
+        <h2>Find People</h2>
+
+        @if (suggestedUsers == null)
+        {
+            <div class="loading-state">Loading suggestions...</div>
+        }
+        else if (!suggestedUsers.Any())
+        {
+            <div class="empty-state">
+                <button class="btn-round" @onclick="NavigateToFeed">Back to Feed</button>
+            </div>
+        }
+        else
+        {
+            <div class="users-list">
+                @foreach (var user in suggestedUsers)
+                {
+                    <div class="user-card">
+                        <div class="avatar">
+                            @(string.IsNullOrEmpty(user.Username) ? "?" : user.Username![0].ToString().ToUpper())
+                        </div>
+                        <div class="user-info">
+                            <strong>@user.Username</strong>
+                            <small>@(user.Email ?? "No email")</small>
+                        </div>
+                        <button class="btn-follow"
+                                @onclick="() => FollowUser(user.Id)"
+                                disabled="@followingInProgress.Contains(user.Id)">
+                            @(followingInProgress.Contains(user.Id) ? "Following..." : "Follow")
+                        </button>
+                    </div>
+                }
+            </div>
+        }
+    </div>
+</div>
+
+<style>
+    .suggested-container {
+        padding: 20px;
+        max-width: 560px;
+        margin: 0 auto;
+    }
+
+    .page-title {
+        text-align: center;
+        margin: 20px 0 30px;
+        font-size: 26px;
+    }
+
+    .loading {
+        text-align: center;
+        padding: 50px;
+        color: #aaa;
+    }
+
+    .content-card {
+        text-align: center;
+        padding: 40px;
+        background: rgba(255,255,255,0.08);
+        border-radius: 20px;
+    }
+
+    .users-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .user-card {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        background: rgba(255,255,255,0.08);
+        padding: 16px;
+        border-radius: 20px;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255,255,255,0.1);
+        transition: all 0.3s;
+    }
+
+        .user-card:hover {
+            background: rgba(255,255,255,0.15);
+            transform: translateY(-4px);
+        }
+
+    .avatar {
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #444, #666);
+        color: white;
+        font-weight: bold;
+        font-size: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .user-info strong {
+        display: block;
+        font-size: 16px;
+    }
+
+    .user-info small {
+        color: black;
+        font-size: 13px;
+    }
+
+    .btn-follow {
+        padding: 10px 22px;
+        border-radius: 30px;
+        border: none;
+        background: white;
+        color: black;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.4s;
+        margin-left: auto;
+    }
+
+        .btn-follow:hover {
+            border-radius: 12px;
+            background: #333;
+            color: white;
+        }
+
+        .btn-follow:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+</style>
+
+@code {
+    private List<Profiles> suggestedUsers = new();
+    private HashSet<string> followingInProgress = new();
+
+    private void NavigateToFeed() => Nav.NavigateTo("/feed");
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (SupabaseClient.Auth.CurrentUser == null)
+        {
+            Nav.NavigateTo("/");
+            return;
+        }
+        await LoadSuggestedUsers();
+    }
+
+    private async Task LoadSuggestedUsers()
+    {
+        try
+        {
+            var currentUserId = SupabaseClient.Auth.CurrentUser!.Id;
+
+            var allProfiles = await SupabaseClient.From<Profiles>().Get();
+            var following = await SupabaseClient
+                .From<Follows>()
+                .Select("followee_id")
+                .Where(f => f.FollowerId == currentUserId) 
+                .Get();
+
+            var followingIds = following.Models
+                .Select(f => f.FolloweeId)
+                .ToHashSet();
+
+            suggestedUsers = allProfiles.Models
+                .Where(p => p.Id != currentUserId && !followingIds.Contains(p.Id))
+                .ToList();
+
+            StateHasChanged();
+        }
+        catch (Exception ex)
+        {
+            await JS.InvokeVoidAsync("alert", "Error loading suggestions: " + ex.Message);
+        }
+    }
+
+    private async Task FollowUser(string userId)
+    {
+        if (!followingInProgress.Add(userId)) return;
+
+        try
+        {
+            await SupabaseClient.From<Follows>().Insert(new Follows
+            {
+                FollowerId = SupabaseClient.Auth.CurrentUser!.Id,
+                FolloweeId = userId
+            });
+
+            await LoadSuggestedUsers();
+            StateHasChanged();
+
+            await JS.InvokeVoidAsync("alert", "Followed!");
+        }
+        catch (Exception ex)
+        {
+            await JS.InvokeVoidAsync("alert", "Follow failed: " + ex.Message);
+        }
+        finally
+        {
+            followingInProgress.Remove(userId);
+        }
+    }
+}
