@@ -200,8 +200,7 @@
               "RelativeToolTip": "BlogHub.Server\\BlogHub.Server.http",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
-              "WhenOpened": "2025-12-05T14:03:02.59Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-05T14:03:02.59Z"
             },
             {
               "$type": "Document",
@@ -213,8 +212,7 @@
               "RelativeToolTip": "BlogHub.Server\\Models\\BlogPost.cs",
               "ViewState": "AgIAAA8AAAAAAAAAAAAowA4AAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-15T18:44:20.385Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-15T18:44:20.385Z"
             },
             {
               "$type": "Document",
@@ -226,8 +224,7 @@
               "RelativeToolTip": "BlogHub.Server\\Models\\MongoDbSettings.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-22T13:43:16.917Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-22T13:43:16.917Z"
             },
             {
               "$type": "Document",
@@ -239,8 +236,7 @@
               "RelativeToolTip": "BlogHub.Server\\Services\\MongoService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-22T10:51:45.268Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-22T10:51:45.268Z"
             },
             {
               "$type": "Document",
@@ -252,8 +248,7 @@
               "RelativeToolTip": "BlogHub.Server\\appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-11-14T21:40:02.529Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-14T21:40:02.529Z"
             },
             {
               "$type": "Document",
@@ -265,8 +260,7 @@
               "RelativeToolTip": "BlogHub.Server\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAHIAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-14T21:17:29.832Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-14T21:17:29.832Z"
             },
             {
               "$type": "Document",
@@ -290,8 +284,7 @@
               "RelativeToolTip": "BlogHub.Shared\\Models\\BlogPost.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-23T14:14:42.142Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-23T14:14:42.142Z"
             },
             {
               "$type": "Document",
@@ -316,8 +309,7 @@
               "RelativeToolTip": "BlogHub.Server\\Controllers\\FollowController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAEEAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-23T18:08:17.5Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-23T18:08:17.5Z"
             },
             {
               "$type": "Document",
@@ -329,8 +321,7 @@
               "RelativeToolTip": "BlogHub.Client\\wwwroot\\css\\app.css",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAANEEAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-11-14T21:21:16.06Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-14T21:21:16.06Z"
             },
             {
               "$type": "Document",
@@ -342,8 +333,7 @@
               "RelativeToolTip": "BlogHub.Client\\Shared\\LogoutModal.razor",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-29T06:28:51.454Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-29T06:28:51.454Z"
             },
             {
               "$type": "Document",
@@ -355,8 +345,7 @@
               "RelativeToolTip": "BlogHub.Server\\Controllers\\FeedController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAFkAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-16T10:45:38.261Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-16T10:45:38.261Z"
             },
             {
               "$type": "Document",
@@ -368,8 +357,7 @@
               "RelativeToolTip": "BlogHub.Server\\Controllers\\BlogController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-14T21:31:08.708Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-14T21:31:08.708Z"
             },
             {
               "$type": "Document",
@@ -381,8 +369,7 @@
               "RelativeToolTip": "BlogHub.Server\\Properties\\launchSettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-11-14T21:30:36.015Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-14T21:30:36.015Z"
             },
             {
               "$type": "Document",
@@ -418,8 +405,7 @@
               "RelativeToolTip": "BlogHub.Client\\Program.cs",
               "ViewState": "AgIAABIAAAAAAAAAAAAAAB4AAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-14T21:30:20.347Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-14T21:30:20.347Z"
             },
             {
               "$type": "Document",
@@ -455,8 +441,7 @@
               "RelativeToolTip": "BlogHub.Client\\_Imports.razor",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-14T21:29:39.845Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-14T21:29:39.845Z"
             },
             {
               "$type": "Document",
@@ -468,8 +453,7 @@
               "RelativeToolTip": "BlogHub.Client\\Services\\SupabaseService.cs",
               "ViewState": "AgIAACkAAAAAAAAAAAAAACkAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-14T21:28:54.693Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-14T21:28:54.693Z"
             },
             {
               "$type": "Document",
@@ -481,8 +465,7 @@
               "RelativeToolTip": "BlogHub.Client\\Pages\\UserPosts.razor",
               "ViewState": "AgIAAJkAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-16T18:58:22.531Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-16T18:58:22.531Z"
             },
             {
               "$type": "Document",
@@ -494,8 +477,7 @@
               "RelativeToolTip": "BlogHub.Client\\Pages\\Suggested.razor",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAANQAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-17T18:19:03.38Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-17T18:19:03.38Z"
             },
             {
               "$type": "Document",
@@ -507,8 +489,7 @@
               "RelativeToolTip": "BlogHub.Client\\Pages\\Register.razor",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAADgAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-14T21:28:01.162Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-14T21:28:01.162Z"
             },
             {
               "$type": "Document",
@@ -520,8 +501,7 @@
               "RelativeToolTip": "BlogHub.Client\\Pages\\Profile.razor",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-17T16:31:53.272Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-17T16:31:53.272Z"
             },
             {
               "$type": "Document",
@@ -533,8 +513,7 @@
               "RelativeToolTip": "BlogHub.Client\\Pages\\PostDetail.razor",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-16T10:46:54.421Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-16T10:46:54.421Z"
             },
             {
               "$type": "Document",
@@ -546,8 +525,7 @@
               "RelativeToolTip": "BlogHub.Client\\Pages\\Notifications.razor",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAHQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-17T19:09:43.72Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-17T19:09:43.72Z"
             },
             {
               "$type": "Document",
@@ -559,8 +537,7 @@
               "RelativeToolTip": "BlogHub.Client\\Pages\\NewBlog.razor",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-14T21:27:18.306Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-14T21:27:18.306Z"
             },
             {
               "$type": "Document",
@@ -572,8 +549,7 @@
               "RelativeToolTip": "BlogHub.Client\\Pages\\LoginOrReg.razor",
               "ViewState": "AgIAAAwAAAAAAAAAAAAAAB4AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-14T21:26:22.627Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-14T21:26:22.627Z"
             },
             {
               "$type": "Document",
@@ -585,8 +561,7 @@
               "RelativeToolTip": "BlogHub.Client\\Pages\\Login.razor",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAADQAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-14T21:25:35.253Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-14T21:25:35.253Z"
             },
             {
               "$type": "Document",
@@ -598,8 +573,7 @@
               "RelativeToolTip": "BlogHub.Client\\Pages\\Index.razor",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAADkAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-14T21:24:24.963Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-14T21:24:24.963Z"
             },
             {
               "$type": "Document",
@@ -611,8 +585,7 @@
               "RelativeToolTip": "BlogHub.Client\\Pages\\Home.razor",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-14T21:23:58.919Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-14T21:23:58.919Z"
             },
             {
               "$type": "Document",
@@ -660,8 +633,7 @@
               "RelativeToolTip": "BlogHub.Client\\Models\\FeedPostViewModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-24T07:09:26.867Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-24T07:09:26.867Z"
             },
             {
               "$type": "Document",
@@ -673,8 +645,7 @@
               "RelativeToolTip": "BlogHub.Client\\Layout\\MainLayout.razor.css",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-11-14T21:23:33.949Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-14T21:23:33.949Z"
             },
             {
               "$type": "Document",
@@ -686,8 +657,7 @@
               "RelativeToolTip": "BlogHub.Client\\Layout\\MainLayout.razor",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-14T21:23:02.128Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-14T21:23:02.128Z"
             },
             {
               "$type": "Document",
@@ -699,8 +669,7 @@
               "RelativeToolTip": "BlogHub.Client\\wwwroot\\index.html",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-11-14T21:22:31.381Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-14T21:22:31.381Z"
             },
             {
               "$type": "Document",
@@ -755,6 +724,14 @@
           "DockedHeight": 124,
           "SelectedChildIndex": -1,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
