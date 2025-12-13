@@ -1,0 +1,12 @@
+C:\Users\Shruthi Mugunthan\source\repos\BlogHub\BlogHub.Shared\bin\Debug\net9.0\BlogHub.Shared.deps.json
+C:\Users\Shruthi Mugunthan\source\repos\BlogHub\BlogHub.Shared\bin\Debug\net9.0\BlogHub.Shared.dll
+C:\Users\Shruthi Mugunthan\source\repos\BlogHub\BlogHub.Shared\bin\Debug\net9.0\BlogHub.Shared.pdb
+C:\Users\Shruthi Mugunthan\source\repos\BlogHub\BlogHub.Shared\obj\Debug\net9.0\BlogHub.Shared.csproj.AssemblyReference.cache
+C:\Users\Shruthi Mugunthan\source\repos\BlogHub\BlogHub.Shared\obj\Debug\net9.0\BlogHub.Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Shruthi Mugunthan\source\repos\BlogHub\BlogHub.Shared\obj\Debug\net9.0\BlogHub.Shared.AssemblyInfoInputs.cache
+C:\Users\Shruthi Mugunthan\source\repos\BlogHub\BlogHub.Shared\obj\Debug\net9.0\BlogHub.Shared.AssemblyInfo.cs
+C:\Users\Shruthi Mugunthan\source\repos\BlogHub\BlogHub.Shared\obj\Debug\net9.0\BlogHub.Shared.csproj.CoreCompileInputs.cache
+C:\Users\Shruthi Mugunthan\source\repos\BlogHub\BlogHub.Shared\obj\Debug\net9.0\BlogHub.Shared.dll
+C:\Users\Shruthi Mugunthan\source\repos\BlogHub\BlogHub.Shared\obj\Debug\net9.0\refint\BlogHub.Shared.dll
+C:\Users\Shruthi Mugunthan\source\repos\BlogHub\BlogHub.Shared\obj\Debug\net9.0\BlogHub.Shared.pdb
+C:\Users\Shruthi Mugunthan\source\repos\BlogHub\BlogHub.Shared\obj\Debug\net9.0\ref\BlogHub.Shared.dll

@@ -1,0 +1,97 @@
+is_global = true
+build_property.EnableAotAnalyzer = 
+build_property.EnableSingleFileAnalyzer = 
+build_property.EnableTrimAnalyzer = false
+build_property.IncludeAllContentForSelfExtract = 
+build_property.TargetFramework = net9.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = false
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = browser
+build_property.RootNamespace = BlogHub.Client
+build_property.RootNamespace = BlogHub.Client
+build_property.ProjectDir = C:\Users\Shruthi Mugunthan\source\repos\BlogHub\BlogHub.Client\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = false
+build_property.RazorLangVersion = 9.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\Shruthi Mugunthan\source\repos\BlogHub\BlogHub.Client
+build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 9.0
+build_property.EnableCodeStyleSeverity = 
+
+[C:/Users/Shruthi Mugunthan/source/repos/BlogHub/BlogHub.Client/App.razor]
+build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shruthi Mugunthan/source/repos/BlogHub/BlogHub.Client/Pages/Feed.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmVlZC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shruthi Mugunthan/source/repos/BlogHub/BlogHub.Client/Pages/Followers.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRm9sbG93ZXJzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shruthi Mugunthan/source/repos/BlogHub/BlogHub.Client/Pages/Following.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRm9sbG93aW5nLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shruthi Mugunthan/source/repos/BlogHub/BlogHub.Client/Pages/Home.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9tZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shruthi Mugunthan/source/repos/BlogHub/BlogHub.Client/Pages/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shruthi Mugunthan/source/repos/BlogHub/BlogHub.Client/Pages/Login.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW4ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shruthi Mugunthan/source/repos/BlogHub/BlogHub.Client/Pages/LoginOrReg.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW5PclJlZy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shruthi Mugunthan/source/repos/BlogHub/BlogHub.Client/Pages/NewBlog.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTmV3QmxvZy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shruthi Mugunthan/source/repos/BlogHub/BlogHub.Client/Pages/Notifications.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTm90aWZpY2F0aW9ucy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shruthi Mugunthan/source/repos/BlogHub/BlogHub.Client/Pages/PostDetail.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUG9zdERldGFpbC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shruthi Mugunthan/source/repos/BlogHub/BlogHub.Client/Pages/Profile.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZmlsZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shruthi Mugunthan/source/repos/BlogHub/BlogHub.Client/Pages/Register.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVnaXN0ZXIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shruthi Mugunthan/source/repos/BlogHub/BlogHub.Client/Pages/Suggested.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3VnZ2VzdGVkLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shruthi Mugunthan/source/repos/BlogHub/BlogHub.Client/Pages/UserPosts.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclBvc3RzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shruthi Mugunthan/source/repos/BlogHub/BlogHub.Client/Shared/LogoutModal.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXExvZ291dE1vZGFsLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shruthi Mugunthan/source/repos/BlogHub/BlogHub.Client/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shruthi Mugunthan/source/repos/BlogHub/BlogHub.Client/Layout/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XE1haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-2s1n4y00bi

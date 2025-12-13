@@ -1,0 +1,767 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Shruthi Mugunthan\\source\\repos\\BlogHub\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5E8FD2E4-60AF-4A36-A972-33F954E4EEA9}|BlogHub.Shared\\BlogHub.Shared.csproj|c:\\users\\shruthi mugunthan\\source\\repos\\bloghub\\bloghub.shared\\models\\supabasemodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E8FD2E4-60AF-4A36-A972-33F954E4EEA9}|BlogHub.Shared\\BlogHub.Shared.csproj|solutionrelative:bloghub.shared\\models\\supabasemodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E8FD2E4-60AF-4A36-A972-33F954E4EEA9}|BlogHub.Shared\\BlogHub.Shared.csproj|c:\\users\\shruthi mugunthan\\source\\repos\\bloghub\\bloghub.shared\\models\\blogpost.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E8FD2E4-60AF-4A36-A972-33F954E4EEA9}|BlogHub.Shared\\BlogHub.Shared.csproj|solutionrelative:bloghub.shared\\models\\blogpost.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{622D6BCB-932F-442A-9240-AE64EE6D5755}|BlogHub.Server\\BlogHub.Server.csproj|c:\\users\\shruthi mugunthan\\source\\repos\\bloghub\\bloghub.server\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{622D6BCB-932F-442A-9240-AE64EE6D5755}|BlogHub.Server\\BlogHub.Server.csproj|solutionrelative:bloghub.server\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{622D6BCB-932F-442A-9240-AE64EE6D5755}|BlogHub.Server\\BlogHub.Server.csproj|c:\\users\\shruthi mugunthan\\source\\repos\\bloghub\\bloghub.server\\bloghub.server.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
+      "RelativeMoniker": "D:0:0:{622D6BCB-932F-442A-9240-AE64EE6D5755}|BlogHub.Server\\BlogHub.Server.csproj|solutionrelative:bloghub.server\\bloghub.server.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{622D6BCB-932F-442A-9240-AE64EE6D5755}|BlogHub.Server\\BlogHub.Server.csproj|c:\\users\\shruthi mugunthan\\source\\repos\\bloghub\\bloghub.server\\services\\mongoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{622D6BCB-932F-442A-9240-AE64EE6D5755}|BlogHub.Server\\BlogHub.Server.csproj|solutionrelative:bloghub.server\\services\\mongoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{622D6BCB-932F-442A-9240-AE64EE6D5755}|BlogHub.Server\\BlogHub.Server.csproj|c:\\users\\shruthi mugunthan\\source\\repos\\bloghub\\bloghub.server\\models\\mongodbsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{622D6BCB-932F-442A-9240-AE64EE6D5755}|BlogHub.Server\\BlogHub.Server.csproj|solutionrelative:bloghub.server\\models\\mongodbsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{622D6BCB-932F-442A-9240-AE64EE6D5755}|BlogHub.Server\\BlogHub.Server.csproj|c:\\users\\shruthi mugunthan\\source\\repos\\bloghub\\bloghub.server\\models\\blogpost.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{622D6BCB-932F-442A-9240-AE64EE6D5755}|BlogHub.Server\\BlogHub.Server.csproj|solutionrelative:bloghub.server\\models\\blogpost.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{622D6BCB-932F-442A-9240-AE64EE6D5755}|BlogHub.Server\\BlogHub.Server.csproj|c:\\users\\shruthi mugunthan\\source\\repos\\bloghub\\bloghub.server\\controllers\\followcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{622D6BCB-932F-442A-9240-AE64EE6D5755}|BlogHub.Server\\BlogHub.Server.csproj|solutionrelative:bloghub.server\\controllers\\followcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{622D6BCB-932F-442A-9240-AE64EE6D5755}|BlogHub.Server\\BlogHub.Server.csproj|c:\\users\\shruthi mugunthan\\source\\repos\\bloghub\\bloghub.server\\controllers\\feedcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{622D6BCB-932F-442A-9240-AE64EE6D5755}|BlogHub.Server\\BlogHub.Server.csproj|solutionrelative:bloghub.server\\controllers\\feedcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{622D6BCB-932F-442A-9240-AE64EE6D5755}|BlogHub.Server\\BlogHub.Server.csproj|c:\\users\\shruthi mugunthan\\source\\repos\\bloghub\\bloghub.server\\controllers\\blogcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{622D6BCB-932F-442A-9240-AE64EE6D5755}|BlogHub.Server\\BlogHub.Server.csproj|solutionrelative:bloghub.server\\controllers\\blogcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{622D6BCB-932F-442A-9240-AE64EE6D5755}|BlogHub.Server\\BlogHub.Server.csproj|c:\\users\\shruthi mugunthan\\source\\repos\\bloghub\\bloghub.server\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{622D6BCB-932F-442A-9240-AE64EE6D5755}|BlogHub.Server\\BlogHub.Server.csproj|solutionrelative:bloghub.server\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7BF36CF8-379C-4DE5-BB08-0DE5318C6A91}|BlogHub.Client\\BlogHub.Client.csproj|c:\\users\\shruthi mugunthan\\source\\repos\\bloghub\\bloghub.client\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7BF36CF8-379C-4DE5-BB08-0DE5318C6A91}|BlogHub.Client\\BlogHub.Client.csproj|solutionrelative:bloghub.client\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7BF36CF8-379C-4DE5-BB08-0DE5318C6A91}|BlogHub.Client\\BlogHub.Client.csproj|c:\\users\\shruthi mugunthan\\source\\repos\\bloghub\\bloghub.client\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7BF36CF8-379C-4DE5-BB08-0DE5318C6A91}|BlogHub.Client\\BlogHub.Client.csproj|solutionrelative:bloghub.client\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7BF36CF8-379C-4DE5-BB08-0DE5318C6A91}|BlogHub.Client\\BlogHub.Client.csproj|c:\\users\\shruthi mugunthan\\source\\repos\\bloghub\\bloghub.client\\shared\\logoutmodal.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7BF36CF8-379C-4DE5-BB08-0DE5318C6A91}|BlogHub.Client\\BlogHub.Client.csproj|solutionrelative:bloghub.client\\shared\\logoutmodal.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7BF36CF8-379C-4DE5-BB08-0DE5318C6A91}|BlogHub.Client\\BlogHub.Client.csproj|c:\\users\\shruthi mugunthan\\source\\repos\\bloghub\\bloghub.client\\services\\supabaseservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7BF36CF8-379C-4DE5-BB08-0DE5318C6A91}|BlogHub.Client\\BlogHub.Client.csproj|solutionrelative:bloghub.client\\services\\supabaseservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7BF36CF8-379C-4DE5-BB08-0DE5318C6A91}|BlogHub.Client\\BlogHub.Client.csproj|c:\\users\\shruthi mugunthan\\source\\repos\\bloghub\\bloghub.client\\pages\\userposts.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7BF36CF8-379C-4DE5-BB08-0DE5318C6A91}|BlogHub.Client\\BlogHub.Client.csproj|solutionrelative:bloghub.client\\pages\\userposts.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7BF36CF8-379C-4DE5-BB08-0DE5318C6A91}|BlogHub.Client\\BlogHub.Client.csproj|c:\\users\\shruthi mugunthan\\source\\repos\\bloghub\\bloghub.client\\layout\\mainlayout.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{7BF36CF8-379C-4DE5-BB08-0DE5318C6A91}|BlogHub.Client\\BlogHub.Client.csproj|solutionrelative:bloghub.client\\layout\\mainlayout.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7BF36CF8-379C-4DE5-BB08-0DE5318C6A91}|BlogHub.Client\\BlogHub.Client.csproj|c:\\users\\shruthi mugunthan\\source\\repos\\bloghub\\bloghub.client\\models\\feedpostviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7BF36CF8-379C-4DE5-BB08-0DE5318C6A91}|BlogHub.Client\\BlogHub.Client.csproj|solutionrelative:bloghub.client\\models\\feedpostviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7BF36CF8-379C-4DE5-BB08-0DE5318C6A91}|BlogHub.Client\\BlogHub.Client.csproj|c:\\users\\shruthi mugunthan\\source\\repos\\bloghub\\bloghub.client\\pages\\suggested.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7BF36CF8-379C-4DE5-BB08-0DE5318C6A91}|BlogHub.Client\\BlogHub.Client.csproj|solutionrelative:bloghub.client\\pages\\suggested.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7BF36CF8-379C-4DE5-BB08-0DE5318C6A91}|BlogHub.Client\\BlogHub.Client.csproj|c:\\users\\shruthi mugunthan\\source\\repos\\bloghub\\bloghub.client\\pages\\register.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7BF36CF8-379C-4DE5-BB08-0DE5318C6A91}|BlogHub.Client\\BlogHub.Client.csproj|solutionrelative:bloghub.client\\pages\\register.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7BF36CF8-379C-4DE5-BB08-0DE5318C6A91}|BlogHub.Client\\BlogHub.Client.csproj|c:\\users\\shruthi mugunthan\\source\\repos\\bloghub\\bloghub.client\\pages\\profile.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7BF36CF8-379C-4DE5-BB08-0DE5318C6A91}|BlogHub.Client\\BlogHub.Client.csproj|solutionrelative:bloghub.client\\pages\\profile.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7BF36CF8-379C-4DE5-BB08-0DE5318C6A91}|BlogHub.Client\\BlogHub.Client.csproj|c:\\users\\shruthi mugunthan\\source\\repos\\bloghub\\bloghub.client\\pages\\postdetail.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7BF36CF8-379C-4DE5-BB08-0DE5318C6A91}|BlogHub.Client\\BlogHub.Client.csproj|solutionrelative:bloghub.client\\pages\\postdetail.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7BF36CF8-379C-4DE5-BB08-0DE5318C6A91}|BlogHub.Client\\BlogHub.Client.csproj|c:\\users\\shruthi mugunthan\\source\\repos\\bloghub\\bloghub.client\\pages\\notifications.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7BF36CF8-379C-4DE5-BB08-0DE5318C6A91}|BlogHub.Client\\BlogHub.Client.csproj|solutionrelative:bloghub.client\\pages\\notifications.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7BF36CF8-379C-4DE5-BB08-0DE5318C6A91}|BlogHub.Client\\BlogHub.Client.csproj|c:\\users\\shruthi mugunthan\\source\\repos\\bloghub\\bloghub.client\\pages\\newblog.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7BF36CF8-379C-4DE5-BB08-0DE5318C6A91}|BlogHub.Client\\BlogHub.Client.csproj|solutionrelative:bloghub.client\\pages\\newblog.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7BF36CF8-379C-4DE5-BB08-0DE5318C6A91}|BlogHub.Client\\BlogHub.Client.csproj|c:\\users\\shruthi mugunthan\\source\\repos\\bloghub\\bloghub.client\\pages\\loginorreg.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7BF36CF8-379C-4DE5-BB08-0DE5318C6A91}|BlogHub.Client\\BlogHub.Client.csproj|solutionrelative:bloghub.client\\pages\\loginorreg.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7BF36CF8-379C-4DE5-BB08-0DE5318C6A91}|BlogHub.Client\\BlogHub.Client.csproj|c:\\users\\shruthi mugunthan\\source\\repos\\bloghub\\bloghub.client\\pages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7BF36CF8-379C-4DE5-BB08-0DE5318C6A91}|BlogHub.Client\\BlogHub.Client.csproj|solutionrelative:bloghub.client\\pages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7BF36CF8-379C-4DE5-BB08-0DE5318C6A91}|BlogHub.Client\\BlogHub.Client.csproj|c:\\users\\shruthi mugunthan\\source\\repos\\bloghub\\bloghub.client\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7BF36CF8-379C-4DE5-BB08-0DE5318C6A91}|BlogHub.Client\\BlogHub.Client.csproj|solutionrelative:bloghub.client\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7BF36CF8-379C-4DE5-BB08-0DE5318C6A91}|BlogHub.Client\\BlogHub.Client.csproj|c:\\users\\shruthi mugunthan\\source\\repos\\bloghub\\bloghub.client\\wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7BF36CF8-379C-4DE5-BB08-0DE5318C6A91}|BlogHub.Client\\BlogHub.Client.csproj|solutionrelative:bloghub.client\\wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{622D6BCB-932F-442A-9240-AE64EE6D5755}|BlogHub.Server\\BlogHub.Server.csproj|c:\\users\\shruthi mugunthan\\source\\repos\\bloghub\\bloghub.server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{622D6BCB-932F-442A-9240-AE64EE6D5755}|BlogHub.Server\\BlogHub.Server.csproj|solutionrelative:bloghub.server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7BF36CF8-379C-4DE5-BB08-0DE5318C6A91}|BlogHub.Client\\BlogHub.Client.csproj|c:\\users\\shruthi mugunthan\\source\\repos\\bloghub\\bloghub.client\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7BF36CF8-379C-4DE5-BB08-0DE5318C6A91}|BlogHub.Client\\BlogHub.Client.csproj|solutionrelative:bloghub.client\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7BF36CF8-379C-4DE5-BB08-0DE5318C6A91}|BlogHub.Client\\BlogHub.Client.csproj|c:\\users\\shruthi mugunthan\\source\\repos\\bloghub\\bloghub.client\\pages\\login.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7BF36CF8-379C-4DE5-BB08-0DE5318C6A91}|BlogHub.Client\\BlogHub.Client.csproj|solutionrelative:bloghub.client\\pages\\login.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7BF36CF8-379C-4DE5-BB08-0DE5318C6A91}|BlogHub.Client\\BlogHub.Client.csproj|c:\\users\\shruthi mugunthan\\source\\repos\\bloghub\\bloghub.client\\wwwroot\\css\\app.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{7BF36CF8-379C-4DE5-BB08-0DE5318C6A91}|BlogHub.Client\\BlogHub.Client.csproj|solutionrelative:bloghub.client\\wwwroot\\css\\app.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7BF36CF8-379C-4DE5-BB08-0DE5318C6A91}|BlogHub.Client\\BlogHub.Client.csproj|c:\\users\\shruthi mugunthan\\source\\repos\\bloghub\\bloghub.client\\pages\\following.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7BF36CF8-379C-4DE5-BB08-0DE5318C6A91}|BlogHub.Client\\BlogHub.Client.csproj|solutionrelative:bloghub.client\\pages\\following.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7BF36CF8-379C-4DE5-BB08-0DE5318C6A91}|BlogHub.Client\\BlogHub.Client.csproj|c:\\users\\shruthi mugunthan\\source\\repos\\bloghub\\bloghub.client\\pages\\followers.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7BF36CF8-379C-4DE5-BB08-0DE5318C6A91}|BlogHub.Client\\BlogHub.Client.csproj|solutionrelative:bloghub.client\\pages\\followers.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7BF36CF8-379C-4DE5-BB08-0DE5318C6A91}|BlogHub.Client\\BlogHub.Client.csproj|c:\\users\\shruthi mugunthan\\source\\repos\\bloghub\\bloghub.client\\pages\\feed.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7BF36CF8-379C-4DE5-BB08-0DE5318C6A91}|BlogHub.Client\\BlogHub.Client.csproj|solutionrelative:bloghub.client\\pages\\feed.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7BF36CF8-379C-4DE5-BB08-0DE5318C6A91}|BlogHub.Client\\BlogHub.Client.csproj|c:\\users\\shruthi mugunthan\\source\\repos\\bloghub\\bloghub.client\\bloghub.client.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{7BF36CF8-379C-4DE5-BB08-0DE5318C6A91}|BlogHub.Client\\BlogHub.Client.csproj|solutionrelative:bloghub.client\\bloghub.client.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E8FD2E4-60AF-4A36-A972-33F954E4EEA9}|BlogHub.Shared\\BlogHub.Shared.csproj|c:\\users\\shruthi mugunthan\\source\\repos\\bloghub\\bloghub.shared\\bloghub.shared.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{5E8FD2E4-60AF-4A36-A972-33F954E4EEA9}|BlogHub.Shared\\BlogHub.Shared.csproj|solutionrelative:bloghub.shared\\bloghub.shared.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{622D6BCB-932F-442A-9240-AE64EE6D5755}|BlogHub.Server\\BlogHub.Server.csproj|c:\\users\\shruthi mugunthan\\source\\repos\\bloghub\\bloghub.server\\bloghub.server.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{622D6BCB-932F-442A-9240-AE64EE6D5755}|BlogHub.Server\\BlogHub.Server.csproj|solutionrelative:bloghub.server\\bloghub.server.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7BF36CF8-379C-4DE5-BB08-0DE5318C6A91}|BlogHub.Client\\BlogHub.Client.csproj|c:\\users\\shruthi mugunthan\\source\\repos\\bloghub\\bloghub.client\\authenticationheaderhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7BF36CF8-379C-4DE5-BB08-0DE5318C6A91}|BlogHub.Client\\BlogHub.Client.csproj|solutionrelative:bloghub.client\\authenticationheaderhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7BF36CF8-379C-4DE5-BB08-0DE5318C6A91}|BlogHub.Client\\BlogHub.Client.csproj|c:\\users\\shruthi mugunthan\\source\\repos\\bloghub\\bloghub.client\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7BF36CF8-379C-4DE5-BB08-0DE5318C6A91}|BlogHub.Client\\BlogHub.Client.csproj|solutionrelative:bloghub.client\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7BF36CF8-379C-4DE5-BB08-0DE5318C6A91}|BlogHub.Client\\BlogHub.Client.csproj|c:\\users\\shruthi mugunthan\\source\\repos\\bloghub\\bloghub.client\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{7BF36CF8-379C-4DE5-BB08-0DE5318C6A91}|BlogHub.Client\\BlogHub.Client.csproj|solutionrelative:bloghub.client\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Shruthi Mugunthan\\AppData\\Local\\Temp\\.vsdbgsrc\\630cd4f92b1ae0ce203691d79186a92e6b3a72fd44b0e7f8324d5c638bccf581\\Monitor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Shruthi Mugunthan\\AppData\\Local\\Temp\\.vsdbgsrc\\d20021878b4dd5602f6a4ef2d20c4e750ce37888350855b8d653bca124c0e772\\StaticAssetsEndpointRouteBuilderExtensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7BF36CF8-379C-4DE5-BB08-0DE5318C6A91}|BlogHub.Client\\BlogHub.Client.csproj|c:\\users\\shruthi mugunthan\\source\\repos\\bloghub\\bloghub.client\\bloghub.client.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{7BF36CF8-379C-4DE5-BB08-0DE5318C6A91}|BlogHub.Client\\BlogHub.Client.csproj|solutionrelative:bloghub.client\\bloghub.client.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 324,
+          "SelectedChildIndex": 9,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:2:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "BlogHub.Server.http",
+              "DocumentMoniker": "C:\\Users\\Shruthi Mugunthan\\source\\repos\\BlogHub\\BlogHub.Server\\BlogHub.Server.http",
+              "RelativeDocumentMoniker": "BlogHub.Server\\BlogHub.Server.http",
+              "ToolTip": "C:\\Users\\Shruthi Mugunthan\\source\\repos\\BlogHub\\BlogHub.Server\\BlogHub.Server.http",
+              "RelativeToolTip": "BlogHub.Server\\BlogHub.Server.http",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
+              "WhenOpened": "2025-12-05T14:03:02.59Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "BlogPost.cs",
+              "DocumentMoniker": "C:\\Users\\Shruthi Mugunthan\\source\\repos\\BlogHub\\BlogHub.Server\\Models\\BlogPost.cs",
+              "RelativeDocumentMoniker": "BlogHub.Server\\Models\\BlogPost.cs",
+              "ToolTip": "C:\\Users\\Shruthi Mugunthan\\source\\repos\\BlogHub\\BlogHub.Server\\Models\\BlogPost.cs",
+              "RelativeToolTip": "BlogHub.Server\\Models\\BlogPost.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAowA4AAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-15T18:44:20.385Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "MongoDbSettings.cs",
+              "DocumentMoniker": "C:\\Users\\Shruthi Mugunthan\\source\\repos\\BlogHub\\BlogHub.Server\\Models\\MongoDbSettings.cs",
+              "RelativeDocumentMoniker": "BlogHub.Server\\Models\\MongoDbSettings.cs",
+              "ToolTip": "C:\\Users\\Shruthi Mugunthan\\source\\repos\\BlogHub\\BlogHub.Server\\Models\\MongoDbSettings.cs",
+              "RelativeToolTip": "BlogHub.Server\\Models\\MongoDbSettings.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-22T13:43:16.917Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MongoService.cs",
+              "DocumentMoniker": "C:\\Users\\Shruthi Mugunthan\\source\\repos\\BlogHub\\BlogHub.Server\\Services\\MongoService.cs",
+              "RelativeDocumentMoniker": "BlogHub.Server\\Services\\MongoService.cs",
+              "ToolTip": "C:\\Users\\Shruthi Mugunthan\\source\\repos\\BlogHub\\BlogHub.Server\\Services\\MongoService.cs",
+              "RelativeToolTip": "BlogHub.Server\\Services\\MongoService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-22T10:51:45.268Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Shruthi Mugunthan\\source\\repos\\BlogHub\\BlogHub.Server\\appsettings.json",
+              "RelativeDocumentMoniker": "BlogHub.Server\\appsettings.json",
+              "ToolTip": "C:\\Users\\Shruthi Mugunthan\\source\\repos\\BlogHub\\BlogHub.Server\\appsettings.json",
+              "RelativeToolTip": "BlogHub.Server\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-11-14T21:40:02.529Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Shruthi Mugunthan\\source\\repos\\BlogHub\\BlogHub.Server\\Program.cs",
+              "RelativeDocumentMoniker": "BlogHub.Server\\Program.cs",
+              "ToolTip": "C:\\Users\\Shruthi Mugunthan\\source\\repos\\BlogHub\\BlogHub.Server\\Program.cs",
+              "RelativeToolTip": "BlogHub.Server\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHIAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T21:17:29.832Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "BlogHub.Shared.csproj",
+              "DocumentMoniker": "C:\\Users\\Shruthi Mugunthan\\source\\repos\\BlogHub\\BlogHub.Shared\\BlogHub.Shared.csproj",
+              "RelativeDocumentMoniker": "BlogHub.Shared\\BlogHub.Shared.csproj",
+              "ToolTip": "C:\\Users\\Shruthi Mugunthan\\source\\repos\\BlogHub\\BlogHub.Shared\\BlogHub.Shared.csproj",
+              "RelativeToolTip": "BlogHub.Shared\\BlogHub.Shared.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-11-16T11:05:34.41Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "BlogPost.cs",
+              "DocumentMoniker": "C:\\Users\\Shruthi Mugunthan\\source\\repos\\BlogHub\\BlogHub.Shared\\Models\\BlogPost.cs",
+              "RelativeDocumentMoniker": "BlogHub.Shared\\Models\\BlogPost.cs",
+              "ToolTip": "C:\\Users\\Shruthi Mugunthan\\source\\repos\\BlogHub\\BlogHub.Shared\\Models\\BlogPost.cs",
+              "RelativeToolTip": "BlogHub.Shared\\Models\\BlogPost.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T14:14:42.142Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SupabaseModels.cs",
+              "DocumentMoniker": "C:\\Users\\Shruthi Mugunthan\\source\\repos\\BlogHub\\BlogHub.Shared\\Models\\SupabaseModels.cs",
+              "RelativeDocumentMoniker": "BlogHub.Shared\\Models\\SupabaseModels.cs",
+              "ToolTip": "C:\\Users\\Shruthi Mugunthan\\source\\repos\\BlogHub\\BlogHub.Shared\\Models\\SupabaseModels.cs",
+              "RelativeToolTip": "BlogHub.Shared\\Models\\SupabaseModels.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-16T11:05:56.351Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "FollowController.cs",
+              "DocumentMoniker": "C:\\Users\\Shruthi Mugunthan\\source\\repos\\BlogHub\\BlogHub.Server\\Controllers\\FollowController.cs",
+              "RelativeDocumentMoniker": "BlogHub.Server\\Controllers\\FollowController.cs",
+              "ToolTip": "C:\\Users\\Shruthi Mugunthan\\source\\repos\\BlogHub\\BlogHub.Server\\Controllers\\FollowController.cs",
+              "RelativeToolTip": "BlogHub.Server\\Controllers\\FollowController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T18:08:17.5Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "app.css",
+              "DocumentMoniker": "C:\\Users\\Shruthi Mugunthan\\source\\repos\\BlogHub\\BlogHub.Client\\wwwroot\\css\\app.css",
+              "RelativeDocumentMoniker": "BlogHub.Client\\wwwroot\\css\\app.css",
+              "ToolTip": "C:\\Users\\Shruthi Mugunthan\\source\\repos\\BlogHub\\BlogHub.Client\\wwwroot\\css\\app.css",
+              "RelativeToolTip": "BlogHub.Client\\wwwroot\\css\\app.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAANEEAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-11-14T21:21:16.06Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "LogoutModal.razor",
+              "DocumentMoniker": "C:\\Users\\Shruthi Mugunthan\\source\\repos\\BlogHub\\BlogHub.Client\\Shared\\LogoutModal.razor",
+              "RelativeDocumentMoniker": "BlogHub.Client\\Shared\\LogoutModal.razor",
+              "ToolTip": "C:\\Users\\Shruthi Mugunthan\\source\\repos\\BlogHub\\BlogHub.Client\\Shared\\LogoutModal.razor",
+              "RelativeToolTip": "BlogHub.Client\\Shared\\LogoutModal.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-29T06:28:51.454Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "FeedController.cs",
+              "DocumentMoniker": "C:\\Users\\Shruthi Mugunthan\\source\\repos\\BlogHub\\BlogHub.Server\\Controllers\\FeedController.cs",
+              "RelativeDocumentMoniker": "BlogHub.Server\\Controllers\\FeedController.cs",
+              "ToolTip": "C:\\Users\\Shruthi Mugunthan\\source\\repos\\BlogHub\\BlogHub.Server\\Controllers\\FeedController.cs",
+              "RelativeToolTip": "BlogHub.Server\\Controllers\\FeedController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-16T10:45:38.261Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "BlogController.cs",
+              "DocumentMoniker": "C:\\Users\\Shruthi Mugunthan\\source\\repos\\BlogHub\\BlogHub.Server\\Controllers\\BlogController.cs",
+              "RelativeDocumentMoniker": "BlogHub.Server\\Controllers\\BlogController.cs",
+              "ToolTip": "C:\\Users\\Shruthi Mugunthan\\source\\repos\\BlogHub\\BlogHub.Server\\Controllers\\BlogController.cs",
+              "RelativeToolTip": "BlogHub.Server\\Controllers\\BlogController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T21:31:08.708Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\Shruthi Mugunthan\\source\\repos\\BlogHub\\BlogHub.Server\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "BlogHub.Server\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\Shruthi Mugunthan\\source\\repos\\BlogHub\\BlogHub.Server\\Properties\\launchSettings.json",
+              "RelativeToolTip": "BlogHub.Server\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-11-14T21:30:36.015Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "BlogHub.Client.csproj",
+              "DocumentMoniker": "C:\\Users\\Shruthi Mugunthan\\source\\repos\\BlogHub\\BlogHub.Client\\BlogHub.Client.csproj",
+              "RelativeDocumentMoniker": "BlogHub.Client\\BlogHub.Client.csproj",
+              "ToolTip": "C:\\Users\\Shruthi Mugunthan\\source\\repos\\BlogHub\\BlogHub.Client\\BlogHub.Client.csproj",
+              "RelativeToolTip": "BlogHub.Client\\BlogHub.Client.csproj",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAcwBQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-11-14T21:48:55.147Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "BlogHub.Server.csproj",
+              "DocumentMoniker": "C:\\Users\\Shruthi Mugunthan\\source\\repos\\BlogHub\\BlogHub.Server\\BlogHub.Server.csproj",
+              "RelativeDocumentMoniker": "BlogHub.Server\\BlogHub.Server.csproj",
+              "ToolTip": "C:\\Users\\Shruthi Mugunthan\\source\\repos\\BlogHub\\BlogHub.Server\\BlogHub.Server.csproj",
+              "RelativeToolTip": "BlogHub.Server\\BlogHub.Server.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-11-14T21:32:58.258Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Shruthi Mugunthan\\source\\repos\\BlogHub\\BlogHub.Client\\Program.cs",
+              "RelativeDocumentMoniker": "BlogHub.Client\\Program.cs",
+              "ToolTip": "C:\\Users\\Shruthi Mugunthan\\source\\repos\\BlogHub\\BlogHub.Client\\Program.cs",
+              "RelativeToolTip": "BlogHub.Client\\Program.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAAB4AAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T21:30:20.347Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "AuthenticationHeaderHandler.cs",
+              "DocumentMoniker": "C:\\Users\\Shruthi Mugunthan\\source\\repos\\BlogHub\\BlogHub.Client\\AuthenticationHeaderHandler.cs",
+              "RelativeDocumentMoniker": "BlogHub.Client\\AuthenticationHeaderHandler.cs",
+              "ToolTip": "C:\\Users\\Shruthi Mugunthan\\source\\repos\\BlogHub\\BlogHub.Client\\AuthenticationHeaderHandler.cs",
+              "RelativeToolTip": "BlogHub.Client\\AuthenticationHeaderHandler.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAmwCUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-25T17:45:27.769Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "App.razor",
+              "DocumentMoniker": "C:\\Users\\Shruthi Mugunthan\\source\\repos\\BlogHub\\BlogHub.Client\\App.razor",
+              "RelativeDocumentMoniker": "BlogHub.Client\\App.razor",
+              "ToolTip": "C:\\Users\\Shruthi Mugunthan\\source\\repos\\BlogHub\\BlogHub.Client\\App.razor",
+              "RelativeToolTip": "BlogHub.Client\\App.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-14T22:13:02.962Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "_Imports.razor",
+              "DocumentMoniker": "C:\\Users\\Shruthi Mugunthan\\source\\repos\\BlogHub\\BlogHub.Client\\_Imports.razor",
+              "RelativeDocumentMoniker": "BlogHub.Client\\_Imports.razor",
+              "ToolTip": "C:\\Users\\Shruthi Mugunthan\\source\\repos\\BlogHub\\BlogHub.Client\\_Imports.razor",
+              "RelativeToolTip": "BlogHub.Client\\_Imports.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-14T21:29:39.845Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "SupabaseService.cs",
+              "DocumentMoniker": "C:\\Users\\Shruthi Mugunthan\\source\\repos\\BlogHub\\BlogHub.Client\\Services\\SupabaseService.cs",
+              "RelativeDocumentMoniker": "BlogHub.Client\\Services\\SupabaseService.cs",
+              "ToolTip": "C:\\Users\\Shruthi Mugunthan\\source\\repos\\BlogHub\\BlogHub.Client\\Services\\SupabaseService.cs",
+              "RelativeToolTip": "BlogHub.Client\\Services\\SupabaseService.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAAAAACkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T21:28:54.693Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "UserPosts.razor",
+              "DocumentMoniker": "C:\\Users\\Shruthi Mugunthan\\source\\repos\\BlogHub\\BlogHub.Client\\Pages\\UserPosts.razor",
+              "RelativeDocumentMoniker": "BlogHub.Client\\Pages\\UserPosts.razor",
+              "ToolTip": "C:\\Users\\Shruthi Mugunthan\\source\\repos\\BlogHub\\BlogHub.Client\\Pages\\UserPosts.razor",
+              "RelativeToolTip": "BlogHub.Client\\Pages\\UserPosts.razor",
+              "ViewState": "AgIAAJkAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-16T18:58:22.531Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Suggested.razor",
+              "DocumentMoniker": "C:\\Users\\Shruthi Mugunthan\\source\\repos\\BlogHub\\BlogHub.Client\\Pages\\Suggested.razor",
+              "RelativeDocumentMoniker": "BlogHub.Client\\Pages\\Suggested.razor",
+              "ToolTip": "C:\\Users\\Shruthi Mugunthan\\source\\repos\\BlogHub\\BlogHub.Client\\Pages\\Suggested.razor",
+              "RelativeToolTip": "BlogHub.Client\\Pages\\Suggested.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAANQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-17T18:19:03.38Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Register.razor",
+              "DocumentMoniker": "C:\\Users\\Shruthi Mugunthan\\source\\repos\\BlogHub\\BlogHub.Client\\Pages\\Register.razor",
+              "RelativeDocumentMoniker": "BlogHub.Client\\Pages\\Register.razor",
+              "ToolTip": "C:\\Users\\Shruthi Mugunthan\\source\\repos\\BlogHub\\BlogHub.Client\\Pages\\Register.razor",
+              "RelativeToolTip": "BlogHub.Client\\Pages\\Register.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADgAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-14T21:28:01.162Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "Profile.razor",
+              "DocumentMoniker": "C:\\Users\\Shruthi Mugunthan\\source\\repos\\BlogHub\\BlogHub.Client\\Pages\\Profile.razor",
+              "RelativeDocumentMoniker": "BlogHub.Client\\Pages\\Profile.razor",
+              "ToolTip": "C:\\Users\\Shruthi Mugunthan\\source\\repos\\BlogHub\\BlogHub.Client\\Pages\\Profile.razor",
+              "RelativeToolTip": "BlogHub.Client\\Pages\\Profile.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-17T16:31:53.272Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "PostDetail.razor",
+              "DocumentMoniker": "C:\\Users\\Shruthi Mugunthan\\source\\repos\\BlogHub\\BlogHub.Client\\Pages\\PostDetail.razor",
+              "RelativeDocumentMoniker": "BlogHub.Client\\Pages\\PostDetail.razor",
+              "ToolTip": "C:\\Users\\Shruthi Mugunthan\\source\\repos\\BlogHub\\BlogHub.Client\\Pages\\PostDetail.razor",
+              "RelativeToolTip": "BlogHub.Client\\Pages\\PostDetail.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-16T10:46:54.421Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "Notifications.razor",
+              "DocumentMoniker": "C:\\Users\\Shruthi Mugunthan\\source\\repos\\BlogHub\\BlogHub.Client\\Pages\\Notifications.razor",
+              "RelativeDocumentMoniker": "BlogHub.Client\\Pages\\Notifications.razor",
+              "ToolTip": "C:\\Users\\Shruthi Mugunthan\\source\\repos\\BlogHub\\BlogHub.Client\\Pages\\Notifications.razor",
+              "RelativeToolTip": "BlogHub.Client\\Pages\\Notifications.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-17T19:09:43.72Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "NewBlog.razor",
+              "DocumentMoniker": "C:\\Users\\Shruthi Mugunthan\\source\\repos\\BlogHub\\BlogHub.Client\\Pages\\NewBlog.razor",
+              "RelativeDocumentMoniker": "BlogHub.Client\\Pages\\NewBlog.razor",
+              "ToolTip": "C:\\Users\\Shruthi Mugunthan\\source\\repos\\BlogHub\\BlogHub.Client\\Pages\\NewBlog.razor",
+              "RelativeToolTip": "BlogHub.Client\\Pages\\NewBlog.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-14T21:27:18.306Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "LoginOrReg.razor",
+              "DocumentMoniker": "C:\\Users\\Shruthi Mugunthan\\source\\repos\\BlogHub\\BlogHub.Client\\Pages\\LoginOrReg.razor",
+              "RelativeDocumentMoniker": "BlogHub.Client\\Pages\\LoginOrReg.razor",
+              "ToolTip": "C:\\Users\\Shruthi Mugunthan\\source\\repos\\BlogHub\\BlogHub.Client\\Pages\\LoginOrReg.razor",
+              "RelativeToolTip": "BlogHub.Client\\Pages\\LoginOrReg.razor",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAB4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-14T21:26:22.627Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "Login.razor",
+              "DocumentMoniker": "C:\\Users\\Shruthi Mugunthan\\source\\repos\\BlogHub\\BlogHub.Client\\Pages\\Login.razor",
+              "RelativeDocumentMoniker": "BlogHub.Client\\Pages\\Login.razor",
+              "ToolTip": "C:\\Users\\Shruthi Mugunthan\\source\\repos\\BlogHub\\BlogHub.Client\\Pages\\Login.razor",
+              "RelativeToolTip": "BlogHub.Client\\Pages\\Login.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADQAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-14T21:25:35.253Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "Index.razor",
+              "DocumentMoniker": "C:\\Users\\Shruthi Mugunthan\\source\\repos\\BlogHub\\BlogHub.Client\\Pages\\Index.razor",
+              "RelativeDocumentMoniker": "BlogHub.Client\\Pages\\Index.razor",
+              "ToolTip": "C:\\Users\\Shruthi Mugunthan\\source\\repos\\BlogHub\\BlogHub.Client\\Pages\\Index.razor",
+              "RelativeToolTip": "BlogHub.Client\\Pages\\Index.razor",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAADkAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-14T21:24:24.963Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "Home.razor",
+              "DocumentMoniker": "C:\\Users\\Shruthi Mugunthan\\source\\repos\\BlogHub\\BlogHub.Client\\Pages\\Home.razor",
+              "RelativeDocumentMoniker": "BlogHub.Client\\Pages\\Home.razor",
+              "ToolTip": "C:\\Users\\Shruthi Mugunthan\\source\\repos\\BlogHub\\BlogHub.Client\\Pages\\Home.razor",
+              "RelativeToolTip": "BlogHub.Client\\Pages\\Home.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-14T21:23:58.919Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "Following.razor",
+              "DocumentMoniker": "C:\\Users\\Shruthi Mugunthan\\source\\repos\\BlogHub\\BlogHub.Client\\Pages\\Following.razor",
+              "RelativeDocumentMoniker": "BlogHub.Client\\Pages\\Following.razor",
+              "ToolTip": "C:\\Users\\Shruthi Mugunthan\\source\\repos\\BlogHub\\BlogHub.Client\\Pages\\Following.razor",
+              "RelativeToolTip": "BlogHub.Client\\Pages\\Following.razor",
+              "ViewState": "AgIAACcAAAAAAAAAAAAAADEAAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-17T19:09:05.232Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "Followers.razor",
+              "DocumentMoniker": "C:\\Users\\Shruthi Mugunthan\\source\\repos\\BlogHub\\BlogHub.Client\\Pages\\Followers.razor",
+              "RelativeDocumentMoniker": "BlogHub.Client\\Pages\\Followers.razor",
+              "ToolTip": "C:\\Users\\Shruthi Mugunthan\\source\\repos\\BlogHub\\BlogHub.Client\\Pages\\Followers.razor",
+              "RelativeToolTip": "BlogHub.Client\\Pages\\Followers.razor",
+              "ViewState": "AgIAACEAAAAAAAAAAAAAADMAAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-17T19:08:03.712Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "Feed.razor",
+              "DocumentMoniker": "C:\\Users\\Shruthi Mugunthan\\source\\repos\\BlogHub\\BlogHub.Client\\Pages\\Feed.razor",
+              "RelativeDocumentMoniker": "BlogHub.Client\\Pages\\Feed.razor",
+              "ToolTip": "C:\\Users\\Shruthi Mugunthan\\source\\repos\\BlogHub\\BlogHub.Client\\Pages\\Feed.razor",
+              "RelativeToolTip": "BlogHub.Client\\Pages\\Feed.razor",
+              "ViewState": "AgIAAMEAAAAAAAAAAAAcwNsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-17T16:31:00.962Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "FeedPostViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\Shruthi Mugunthan\\source\\repos\\BlogHub\\BlogHub.Client\\Models\\FeedPostViewModel.cs",
+              "RelativeDocumentMoniker": "BlogHub.Client\\Models\\FeedPostViewModel.cs",
+              "ToolTip": "C:\\Users\\Shruthi Mugunthan\\source\\repos\\BlogHub\\BlogHub.Client\\Models\\FeedPostViewModel.cs",
+              "RelativeToolTip": "BlogHub.Client\\Models\\FeedPostViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-24T07:09:26.867Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "MainLayout.razor.css",
+              "DocumentMoniker": "C:\\Users\\Shruthi Mugunthan\\source\\repos\\BlogHub\\BlogHub.Client\\Layout\\MainLayout.razor.css",
+              "RelativeDocumentMoniker": "BlogHub.Client\\Layout\\MainLayout.razor.css",
+              "ToolTip": "C:\\Users\\Shruthi Mugunthan\\source\\repos\\BlogHub\\BlogHub.Client\\Layout\\MainLayout.razor.css",
+              "RelativeToolTip": "BlogHub.Client\\Layout\\MainLayout.razor.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-11-14T21:23:33.949Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "MainLayout.razor",
+              "DocumentMoniker": "C:\\Users\\Shruthi Mugunthan\\source\\repos\\BlogHub\\BlogHub.Client\\Layout\\MainLayout.razor",
+              "RelativeDocumentMoniker": "BlogHub.Client\\Layout\\MainLayout.razor",
+              "ToolTip": "C:\\Users\\Shruthi Mugunthan\\source\\repos\\BlogHub\\BlogHub.Client\\Layout\\MainLayout.razor",
+              "RelativeToolTip": "BlogHub.Client\\Layout\\MainLayout.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-14T21:23:02.128Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "index.html",
+              "DocumentMoniker": "C:\\Users\\Shruthi Mugunthan\\source\\repos\\BlogHub\\BlogHub.Client\\wwwroot\\index.html",
+              "RelativeDocumentMoniker": "BlogHub.Client\\wwwroot\\index.html",
+              "ToolTip": "C:\\Users\\Shruthi Mugunthan\\source\\repos\\BlogHub\\BlogHub.Client\\wwwroot\\index.html",
+              "RelativeToolTip": "BlogHub.Client\\wwwroot\\index.html",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-11-14T21:22:31.381Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\Shruthi Mugunthan\\source\\repos\\BlogHub\\BlogHub.Client\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "BlogHub.Client\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\Shruthi Mugunthan\\source\\repos\\BlogHub\\BlogHub.Client\\Properties\\launchSettings.json",
+              "RelativeToolTip": "BlogHub.Client\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAkwBgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-11-14T21:21:07.131Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "Monitor.cs",
+              "DocumentMoniker": "C:\\Users\\Shruthi Mugunthan\\AppData\\Local\\Temp\\.vsdbgsrc\\630cd4f92b1ae0ce203691d79186a92e6b3a72fd44b0e7f8324d5c638bccf581\\Monitor.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\AppData\\Local\\Temp\\.vsdbgsrc\\630cd4f92b1ae0ce203691d79186a92e6b3a72fd44b0e7f8324d5c638bccf581\\Monitor.cs",
+              "ToolTip": "C:\\Users\\Shruthi Mugunthan\\AppData\\Local\\Temp\\.vsdbgsrc\\630cd4f92b1ae0ce203691d79186a92e6b3a72fd44b0e7f8324d5c638bccf581\\Monitor.cs",
+              "RelativeToolTip": "..\\..\\..\\AppData\\Local\\Temp\\.vsdbgsrc\\630cd4f92b1ae0ce203691d79186a92e6b3a72fd44b0e7f8324d5c638bccf581\\Monitor.cs",
+              "ViewState": "AgIAAFUAAAAAAAAAAAAswF8AAAACAAAAAQAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-24T13:03:18.021Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "BlogHub.Client",
+              "DocumentMoniker": "C:\\Users\\Shruthi Mugunthan\\source\\repos\\BlogHub\\BlogHub.Client\\BlogHub.Client.csproj",
+              "RelativeDocumentMoniker": "BlogHub.Client\\BlogHub.Client.csproj",
+              "ToolTip": "C:\\Users\\Shruthi Mugunthan\\source\\repos\\BlogHub\\BlogHub.Client\\BlogHub.Client.csproj",
+              "RelativeToolTip": "BlogHub.Client\\BlogHub.Client.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-11-15T19:00:02.181Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "StaticAssetsEndpointRouteBuilderExtensions.cs",
+              "DocumentMoniker": "C:\\Users\\Shruthi Mugunthan\\AppData\\Local\\Temp\\.vsdbgsrc\\d20021878b4dd5602f6a4ef2d20c4e750ce37888350855b8d653bca124c0e772\\StaticAssetsEndpointRouteBuilderExtensions.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\AppData\\Local\\Temp\\.vsdbgsrc\\d20021878b4dd5602f6a4ef2d20c4e750ce37888350855b8d653bca124c0e772\\StaticAssetsEndpointRouteBuilderExtensions.cs",
+              "ToolTip": "C:\\Users\\Shruthi Mugunthan\\AppData\\Local\\Temp\\.vsdbgsrc\\d20021878b4dd5602f6a4ef2d20c4e750ce37888350855b8d653bca124c0e772\\StaticAssetsEndpointRouteBuilderExtensions.cs",
+              "RelativeToolTip": "..\\..\\..\\AppData\\Local\\Temp\\.vsdbgsrc\\d20021878b4dd5602f6a4ef2d20c4e750ce37888350855b8d653bca124c0e772\\StaticAssetsEndpointRouteBuilderExtensions.cs",
+              "ViewState": "AgIAACEAAAAAAAAAAAArwCsAAAADAAAAAQAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-15T03:18:00.678Z"
+            }
+          ]
+        },
+        {
+          "DockedHeight": 124,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
