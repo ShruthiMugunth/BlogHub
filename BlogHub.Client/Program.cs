@@ -1,30 +1,25 @@
-﻿using BlogHub.Client;
+using BlogHub.Client;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Supabase;
-using Microsoft.Extensions.DependencyInjection; 
-using System.Net.Http;
+using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
+
 builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
 
-builder.Services.AddHttpClient("ServerAPI", client =>
-{
-    client.BaseAddress = new Uri("https://localhost:7204/");
-})
-.AddHttpMessageHandler<AuthenticationHeaderHandler>();
-
+// HTTP client
 builder.Services.AddScoped(sp =>
-    sp.GetRequiredService<IHttpClientFactory>()
-      .CreateClient("ServerAPI"));
+    new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 
-builder.Services.AddScoped<AuthenticationHeaderHandler>();
-
-var supabaseUrl = "https://pcknnnjurlbkhoimzwgu.supabase.co";
-var supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBja25ubmp1cmxia2hvaW16d2d1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjMzMjE1MzgsImV4cCI6MjA3ODY4MTUzOH0.E6s9O3-mIzdEGrLa0GpoPwrFgbEcQrq3mN5XFiBQLD4";
-
-var supabase = new Supabase.Client(supabaseUrl, supabaseKey);
+// Supabase (Anon key only)
+var supabaseUrl = builder.Configuration["Supabase:Url"] ?? "https://pcknnnjurlbkhoimzwgu.supabase.co";
+var supabaseKey = builder.Configuration["Supabase:AnonKey"] ?? "<Your Anon Key>";
+var supabase = new Supabase.Client(supabaseUrl, supabaseKey, new SupabaseOptions
+{
+    AutoConnectRealtime = false // Disable Realtime for now if causing issues
+});
 await supabase.InitializeAsync();
 builder.Services.AddSingleton(supabase);
 
