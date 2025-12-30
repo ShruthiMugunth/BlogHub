@@ -14,5 +14,8 @@ RUN dotnet publish "BlogHub.Server.csproj" -c Release -o /app/publish /p:UseAppH
 FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS runtime
 WORKDIR /app
 COPY --from=build /app/publish .
-EXPOSE 8080  # Fly.io default; change if needed
+
+# Expose port 8080 (Fly.io default)
+EXPOSE 8080
+
 ENTRYPOINT ["dotnet", "BlogHub.Server.dll"]
