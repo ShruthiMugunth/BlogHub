@@ -4,9 +4,6 @@
     <TargetFramework>net9.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-
-    <!-- 🔥 REQUIRED for Blazor WASM static files -->
-    <SpaRoot>../BlogHub.Client</SpaRoot>
   </PropertyGroup>
 
   <ItemGroup>
@@ -22,7 +19,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BlogHub.Shared\BlogHub.Shared.csproj" />
-    <ProjectReference Include="..\BlogHub.Client\BlogHub.Client.csproj" />
   </ItemGroup>
 
 </Project>
